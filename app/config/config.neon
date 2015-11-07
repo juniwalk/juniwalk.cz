@@ -1,22 +1,46 @@
 # WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
 # https://nette.org/security-warning
 
-parameters:
+
+# Include rest of the configuration
+includes:
+    - config-params.neon
 
 
+# PHP Configuration
 php:
-	date.timezone: Europe/Prague
+    date.timezone: %timezone%
 
 
-application:
-	errorPresenter: Error
-	mapping:
-		*: App\*Module\Presenters\*Presenter
+# Tracy Debugger
+tracy:
+    strictMode: true
+    maxDepth: 8
+    maxLen: 750
 
 
+# Session settings
 session:
-	expiration: 14 days
+    savePath: %tempDir%/sessions
+    expiration: %session%
 
 
+# Presenter properties
+application:
+    errorPresenter: Error
+    mapping:
+        *: App\*Module\Presenters\*Presenter
+
+
+# Nette mailer
+mail:
+    smtp: true
+    host: %smtp.host%
+    username: %smtp.username%
+    password: %smtp.password%
+    secure: %smtp.secure%
+
+
+# Application services
 services:
-	router: App\RouterFactory::createRouter
+    router: App\Services\RouterFactory::createRouter
