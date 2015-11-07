@@ -1,36 +1,57 @@
 <?php
 
+/**
+ * @author    Martin Procházka <juniwalk@outlook.cz>
+ * @package   www.juniwalk.cz
+ * @link      https://github.com/juniwalk/www.juniwalk.cz
+ * @copyright Martin Procházka (c) 2015
+ * @license   MIT License
+ */
+
 namespace App\Presenters;
 
-use Nette;
-use Nette\Application\Responses;
+use Nette\Application\BadRequestException;
+use Nette\Application\Request;
+use Nette\Application\Responses\CallbackResponse;
+use Nette\Application\Responses\ForwardResponse;
 use Tracy\ILogger;
 
-
-class ErrorPresenter extends Nette\Object implements Nette\Application\IPresenter
+final class ErrorPresenter implements \Nette\Application\IPresenter
 {
-	/** @var ILogger */
+	/**
+     * Instance of the Logger class.
+     * @var ILogger
+     */
 	private $logger;
 
 
+    /**
+     * Collect dependencies of this presenter.
+     * @param ILogger  $logger  Logger instance
+     */
 	public function __construct(ILogger $logger)
 	{
 		$this->logger = $logger;
 	}
 
 
-	public function run(Nette\Application\Request $request)
-	{
-		$exception = $request->getParameter('exception');
+    /**
+     * Run the presenter logic by processing the request.
+     * @param  Request  $request
+     * @return \Nette\Application\IResponse
+     */
+    public function run(Request $request)
+    {
+        $exception = $request->getParameter('exception');
 
-		if ($exception instanceof Nette\Application\BadRequestException) {
-			return new Responses\ForwardResponse($request->setPresenterName('Error4xx'));
-		}
+        if ($exception instanceof BadRequestException) {
+            return new ForwardResponse($request->setPresenterName('Error4xx'));
+        }
 
-		$this->logger->log($exception, ILogger::EXCEPTION);
-		return new Responses\CallbackResponse(function () {
-			require __DIR__ . '/templates/Error/500.phtml';
-		});
-	}
+        $this->logger->log($exception, ILogger::EXCEPTION);
 
+        return new CallbackResponse(function () {
+            require __DIR__.'/templates/Error/500.phtml';
+        });
+    }
 }
