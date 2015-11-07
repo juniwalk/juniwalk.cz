@@ -15,6 +15,7 @@ include __DIR__.'/../vendor/autoload.php';
 
 // List of IPs with enabled debug
 $enableDebugFor = [
+    '192.168.1.1',      // Router (local)
     '109.81.187.90',    // Home
 ];
 
