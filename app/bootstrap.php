@@ -1,21 +1,40 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+/**
+ * @author    Martin Procházka <juniwalk@outlook.cz>
+ * @package   www.juniwalk.cz
+ * @link      https://github.com/juniwalk/www.juniwalk.cz
+ * @copyright Martin Procházka (c) 2015
+ * @license   MIT License
+ */
 
-$configurator = new Nette\Configurator;
+namespace App;
 
-//$configurator->setDebugMode('23.75.345.200'); // enable for your remote IP
-$configurator->enableDebugger(__DIR__ . '/../log');
+// Autoload all vendor classes
+include __DIR__.'/../vendor/autoload.php';
 
-$configurator->setTempDirectory(__DIR__ . '/../temp');
+// List of IPs with enabled debug
+$enableDebugFor = [
+    '109.81.187.90',    // Home
+];
 
-$configurator->createRobotLoader()
+// Create instance of new Configurator
+$di = new \Nette\Configurator;
+$di->addConfig(__DIR__.'/config/config.neon');
+$di->setTempDirectory(__DIR__.'/../temp');
+$di->addParameters([
+    'wwwDir' => __DIR__.'/../www',
+    'appDir' => __DIR__,
+]);
+
+// Setup debugging for this session
+$di->setDebugMode($enableDebugFor);
+$di->enableDebugger(__DIR__.'/../log');
+
+// Create and register robot loader
+$di->createRobotLoader()
 	->addDirectory(__DIR__)
 	->register();
 
-$configurator->addConfig(__DIR__ . '/config/config.neon');
-$configurator->addConfig(__DIR__ . '/config/config.local.neon');
-
-$container = $configurator->createContainer();
-
-return $container;
+// Return instance of DI Container
+return $di->createContainer();
