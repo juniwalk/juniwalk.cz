@@ -15,8 +15,9 @@ include __DIR__.'/../vendor/autoload.php';
 
 // List of IPs with enabled debug
 $enableDebugFor = [
-    '192.168.1.1',      // Router (local)
-    '109.81.187.90',    // Home
+	'2a00:1028:83c8:245e:c129:9487:69c9:8aec',  // JuniWalk-PC IPv6
+	'192.168.1.1',                              // Router (local)
+	'109.81.187.90',                            // Home
 ];
 
 // Create instance of new Configurator
@@ -24,8 +25,8 @@ $di = new \Nette\Configurator;
 $di->addConfig(__DIR__.'/config/config.neon');
 $di->setTempDirectory(__DIR__.'/../temp');
 $di->addParameters([
-    'wwwDir' => __DIR__.'/../www',
-    'appDir' => __DIR__,
+	'wwwDir' => __DIR__.'/../www',
+	'appDir' => __DIR__,
 ]);
 
 // Setup debugging for this session
