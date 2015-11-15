@@ -25,7 +25,8 @@
 		"nette/safe-stream":"~2.3",
 		"nette/security": "~2.4",
 		"latte/latte": "~2.4",
-		"tracy/tracy": "~2.4"
+		"tracy/tracy": "~2.4",
+		"kdyby/redis": "~3.3"
 	},
 
     "minimum-stability": "dev",

@@ -4,43 +4,56 @@
 
 # Include rest of the configuration
 includes:
-    - config-params.neon
+	- config-params.neon
 
 
 # PHP Configuration
 php:
-    date.timezone: %timezone%
+	date.timezone: %timezone%
 
 
 # Tracy Debugger
 tracy:
-    strictMode: true
-    maxDepth: 8
-    maxLen: 750
+	strictMode: true
+	maxDepth: 8
+	maxLen: 750
 
 
 # Session settings
 session:
-    savePath: %tempDir%/sessions
-    expiration: %session%
+	savePath: %tempDir%/sessions
+	expiration: %session%
 
 
 # Presenter properties
 application:
-    errorPresenter: Error
-    mapping:
-        *: App\*Module\Presenters\*Presenter
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
 
 
 # Nette mailer
 mail:
-    smtp: true
-    host: %smtp.host%
-    username: %smtp.username%
-    password: %smtp.password%
-    secure: %smtp.secure%
+	smtp: true
+	host: %smtp.host%
+	username: %smtp.username%
+	password: %smtp.password%
+	secure: %smtp.secure%
 
 
 # Application services
 services:
-    router: App\Services\RouterFactory::createRouter
+	router: App\Services\RouterFactory::createRouter
+
+# Application extensions
+extensions:
+
+	# Kdyby components
+	redis: Kdyby\Redis\DI\RedisExtension
+
+
+# Kdyby \ Redis
+redis:
+	journal: on
+	storage: on
+	session: {database: 1, native: off}
