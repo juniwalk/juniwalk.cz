@@ -21,7 +21,6 @@ tracy:
 
 # Session settings
 session:
-	savePath: %tempDir%/sessions
 	expiration: %session%
 
 
