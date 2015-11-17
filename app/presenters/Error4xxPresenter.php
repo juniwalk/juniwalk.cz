@@ -12,10 +12,10 @@ namespace App\Presenters;
 
 final class Error4xxPresenter extends \Nette\Application\UI\Presenter
 {
-    /**
-     * Render - Default action of the 4xx error presenter.
-     * @param Exception  $exception
-     */
+	/**
+	 * Render - Default action of the 4xx error presenter.
+	 * @param Exception  $exception
+	 */
 	public function renderDefault(\Exception $exception)
 	{
 		// load template 403.latte or 404.latte or ... 4xx.latte

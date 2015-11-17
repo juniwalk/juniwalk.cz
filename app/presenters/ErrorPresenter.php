@@ -19,39 +19,39 @@ use Tracy\ILogger;
 final class ErrorPresenter implements \Nette\Application\IPresenter
 {
 	/**
-     * Instance of the Logger class.
-     * @var ILogger
-     */
+	 * Instance of the Logger class.
+	 * @var ILogger
+	 */
 	private $logger;
 
 
-    /**
-     * Collect dependencies of this presenter.
-     * @param ILogger  $logger  Logger instance
-     */
+	/**
+	 * Collect dependencies of this presenter.
+	 * @param ILogger  $logger  Logger instance
+	 */
 	public function __construct(ILogger $logger)
 	{
 		$this->logger = $logger;
 	}
 
 
-    /**
-     * Run the presenter logic by processing the request.
-     * @param  Request  $request
-     * @return \Nette\Application\IResponse
-     */
-    public function run(Request $request)
-    {
-        $exception = $request->getParameter('exception');
+	/**
+	 * Run the presenter logic by processing the request.
+	 * @param  Request  $request
+	 * @return \Nette\Application\IResponse
+	 */
+	public function run(Request $request)
+	{
+		$exception = $request->getParameter('exception');
 
-        if ($exception instanceof BadRequestException) {
-            return new ForwardResponse($request->setPresenterName('Error4xx'));
-        }
+		if ($exception instanceof BadRequestException) {
+			return new ForwardResponse($request->setPresenterName('Error4xx'));
+		}
 
-        $this->logger->log($exception, ILogger::EXCEPTION);
+   		$this->logger->log($exception, ILogger::EXCEPTION);
 
-        return new CallbackResponse(function () {
-            require __DIR__.'/templates/Error/500.phtml';
-        });
-    }
+		return new CallbackResponse(function () {
+			require __DIR__.'/templates/Error/500.phtml';
+		});
+	}
 }
