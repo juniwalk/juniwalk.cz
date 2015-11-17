@@ -99,12 +99,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "0dd7ce413dddadec88701433bbb4e90163cb0b7a"
+                "reference": "e2177bdfa641fcbeaa1b659078e394de2428e1f1"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/nette/latte/zipball/e2177bdfa641fcbeaa1b659078e394de2428e1f1",
-                "reference": "0dd7ce413dddadec88701433bbb4e90163cb0b7a",
+                "reference": "e2177bdfa641fcbeaa1b659078e394de2428e1f1",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
                 "templating",
                 "twig"
             ],
-            "time": "2015-11-09 17:46:37"
+            "time": "2015-11-16 20:20:03"
         },
         {
             "name": "nette/application",
@@ -226,12 +226,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/bootstrap.git",
-                "reference": "e829cd33e457e09e997c9df31b3d2c4e220ddc90"
+                "reference": "6d1e75004550136fdd57c4758504d531699a435a"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/nette/bootstrap/zipball/6d1e75004550136fdd57c4758504d531699a435a",
-                "reference": "e829cd33e457e09e997c9df31b3d2c4e220ddc90",
+                "reference": "6d1e75004550136fdd57c4758504d531699a435a",
                 "shasum": ""
             },
             "require": {
@@ -289,7 +289,7 @@
             ],
             "description": "Nette Bootstrap",
             "homepage": "https://nette.org",
-            "time": "2015-11-10 11:38:27"
+            "time": "2015-11-16 20:18:22"
         },
         {
             "name": "nette/caching",
@@ -1019,12 +1019,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "0896180137ffb991e35c04131b537a60a474acc8"
+                "reference": "5e1fbf035d6c4a91430d3ce40c594502ee6f0a04"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/nette/utils/zipball/5e1fbf035d6c4a91430d3ce40c594502ee6f0a04",
-                "reference": "0896180137ffb991e35c04131b537a60a474acc8",
+                "reference": "5e1fbf035d6c4a91430d3ce40c594502ee6f0a04",
                 "shasum": ""
             },
             "require": {
@@ -1071,7 +1071,7 @@
             ],
             "description": "Nette Utility Classes",
             "homepage": "https://nette.org",
-            "time": "2015-11-11 19:16:42"
+            "time": "2015-11-16 19:32:04"
         },
         {
             "name": "tracy/tracy",
