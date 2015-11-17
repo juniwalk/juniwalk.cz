@@ -26,7 +26,8 @@
 		"nette/security": "~2.4",
 		"latte/latte": "~2.4",
 		"tracy/tracy": "~2.4",
-		"kdyby/redis": "~3.3"
+		"kdyby/redis": "~3.3",
+		"kdyby/doctrine": "~3.0"
 	},
 
     "minimum-stability": "dev",
