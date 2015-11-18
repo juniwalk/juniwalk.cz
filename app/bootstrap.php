@@ -18,6 +18,7 @@ $enableDebugFor = [
 	'2a00:1028:83c8:245e:c129:9487:69c9:8aec',  // JuniWalk-PC IPv6
 	'192.168.1.1',                              // Router (local)
 	'109.81.187.90',                            // Home
+	'84.242.96.106',							// Design Point
 ];
 
 // Create instance of new Configurator
