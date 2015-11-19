@@ -10,6 +10,6 @@
 
 namespace App\Presenters;
 
-class HomePresenter extends BasePresenter
+class HomePresenter extends \Nette\Application\UI\Presenter
 {
 }
