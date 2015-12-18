@@ -13,6 +13,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Nette\Security\Passwords;
 use Nette\Utils\Strings;
+use Ramsey\Uuid\Uuid;
 
 /**
  * @ORM\Entity
@@ -20,17 +21,8 @@ use Nette\Utils\Strings;
  */
 class User implements \Nette\Security\IIdentity
 {
-	/**
-	 * Use Entity attributes from Kdyby\Doctrine
-	 */
-	use \Kdyby\Doctrine\Entities\MagicAccessors;
+	use \Kdyby\Doctrine\Entities\Attributes\UniversallyUniqueIdentifier;
 
-
-	/**
-	 * @ORM\Column(type="guid") @ORM\Id
-	 * @var string
-	 */
-	private $id;
 
 	/**
 	 * @ORM\Column(type="string", length=16, nullable=true)
@@ -68,71 +60,80 @@ class User implements \Nette\Security\IIdentity
 	 */
 	private $signIn;
 
+	/**
+	 * @ORM\Column(type="boolean")
+	 * @var bool
+	 */
+	private $isBanned = false;
+
 
 	/**
-	 * Collect entity dependencies.
-	 * @param string  $email   User email
+	 * @param string  $email
+	 * @param string  $firstName
+	 * @param string  $lastName
 	 */
-	public function __construct($email)
+	public function __construct(string $email, string $firstName = NULL, string $lastName = NULL)
 	{
-		$this->id = \Ramsey\Uuid\Uuid::uuid4()->toString();
 		$this->signUp = new \DateTime($this->signUp);
-		$this->email = Strings::lower($email);
+		$this->id = Uuid::uuid4()->toString();
+
+		$this->changeEmail($email);
+		$this->rename($name);
 	}
 
 
 	/**
-	 * Get the Id of the User.
-	 * @return string
+	 * @return string[]
 	 */
-	public function getId()
-	{
-		return $this->id;
-	}
-
-
-	/**
-	 * Get assigned roles of the User.
-	 * @return array
-	 */
-	public function getRoles()
+	public function getRoles() : array
 	{
 		return [];
 	}
 
 
 	/**
-	 * Change the name of the User.
-	 * @param  string  $firstName
-	 * @param  string  $lastName
-	 * @return static
+	 * @return bool
 	 */
-	public function changeName($firstName, $lastName)
+	public function isBanned() : bool
+	{
+		return $this->isBanned;
+	}
+
+
+	/**
+	 * @param string  $firstName
+	 * @param string  $lastName
+	 */
+	public function rename(string $firstName,  string $lastName) : void
 	{
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
-		return $this;
 	}
 
 
 	/**
-	 * Change the password of this User.
-	 * @param  string  $value  New password
-	 * @return static
+	 * @param string  $value
 	 */
-	public function changePassword($value)
+	public function changeEmail(string $value) : void
+	{
+		$this->email = Strings::lower($value);
+	}
+
+
+	/**
+	 * @param string  $value
+	 */
+	public function changePassword(string $value) : void
 	{
 		$this->password = $value ? Passwords::hash($value) : null;
-		return $this;
 	}
 
 
 	/**
-	 * Verify given password.
-	 * @param  string  $value  Password to verify
+	 * @param  string  $value
 	 * @return bool
 	 */
-	public function verifyPassword($value)
+	public function verifyPassword(string $value) : bool
 	{
 		return Passwords::verify($value, $this->password);
 	}

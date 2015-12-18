@@ -10,7 +10,7 @@
 
 namespace App\Presenters;
 
-use Nette\Application\BadRequestException;
+use Nette\Application\IResponse;
 use Nette\Application\Request;
 use Nette\Application\Responses\CallbackResponse;
 use Nette\Application\Responses\ForwardResponse;
@@ -18,16 +18,12 @@ use Tracy\ILogger;
 
 final class ErrorPresenter implements \Nette\Application\IPresenter
 {
-	/**
-	 * Instance of the Logger class.
-	 * @var ILogger
-	 */
+	/** @var ILogger */
 	private $logger;
 
 
 	/**
-	 * Collect dependencies of this presenter.
-	 * @param ILogger  $logger  Logger instance
+	 * @param ILogger  $logger
 	 */
 	public function __construct(ILogger $logger)
 	{
@@ -36,15 +32,14 @@ final class ErrorPresenter implements \Nette\Application\IPresenter
 
 
 	/**
-	 * Run the presenter logic by processing the request.
 	 * @param  Request  $request
-	 * @return \Nette\Application\IResponse
+	 * @return Nette\Application\IResponse
 	 */
-	public function run(Request $request)
+	public function run(Request $request) : IResponse
 	{
 		$exception = $request->getParameter('exception');
 
-		if ($exception instanceof BadRequestException) {
+		if ($exception instanceof \Nette\Application\BadRequestException) {
 			return new ForwardResponse($request->setPresenterName('Error4xx'));
 		}
 

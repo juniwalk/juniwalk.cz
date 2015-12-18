@@ -19,10 +19,10 @@ final class RouterFactory
 	 * Create new list of routes.
 	 * @return RouteList
 	 */
-	public static function createRouter()
+	public static function createRouter() : RouteList
 	{
 		// Make this site HTTPS only
-		Route::$defaultFlags |= Route::SECURED;
+		//Route::$defaultFlags |= Route::SECURED;
 
 		// Create new Router instance
 		$router = new RouteList;
