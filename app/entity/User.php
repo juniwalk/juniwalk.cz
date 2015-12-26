@@ -77,8 +77,8 @@ class User implements \Nette\Security\IIdentity
 		$this->signUp = new \DateTime($this->signUp);
 		$this->id = Uuid::uuid4()->toString();
 
+		$this->rename($firstName, $lastName);
 		$this->changeEmail($email);
-		$this->rename($name);
 	}
 
 
@@ -104,7 +104,7 @@ class User implements \Nette\Security\IIdentity
 	 * @param string  $firstName
 	 * @param string  $lastName
 	 */
-	public function rename(string $firstName,  string $lastName) : void
+	public function rename(string $firstName = NULL, string $lastName = NULL) : void
 	{
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
