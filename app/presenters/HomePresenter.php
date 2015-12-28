@@ -12,4 +12,22 @@ namespace App\Presenters;
 
 final class HomePresenter extends \Nette\Application\UI\Presenter
 {
+	/** @var \JuniWalk\Forms\FormLocator @inject */
+	public $formLocator;
+
+
+	/**
+	 * Create new instance of the Form component.
+	 * @param  string  $name  Component name
+	 * @return Nette\Forms\Form
+	 */
+	protected function createComponentSignInForm(string $name)
+	{
+		$form = $this->formLocator->find('signIn');
+		$form->onSuccess[] = function($form, $data) {
+			$this->redirect('default');
+		};
+
+		return $form;
+	}
 }

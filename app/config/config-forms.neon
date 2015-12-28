@@ -1,0 +1,17 @@
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+
+extensions:
+	recaptcha: Minetro\Forms\reCAPTCHA\ReCaptchaExtension
+	form: JuniWalk\Forms\DI\FormsExtension
+
+
+# Minetro \ reCAPTCHA
+recaptcha:
+	secretKey: %captcha.secret%
+	siteKey: %captcha.site%
+
+
+# JuniWalk \ Forms
+form:
+	signIn: App\Forms\ISignInFormFactory

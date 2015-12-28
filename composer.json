@@ -25,8 +25,11 @@
 		"nette/security": "~2.4",
 		"latte/latte": "~2.4",
 		"tracy/tracy": "~2.4",
+        "kdyby/translation": "~2.2",
 		"kdyby/redis": "~3.3",
 		"kdyby/doctrine": "~3.0",
+		"juniwalk/forms": "~1.0",
+        "minetro/recaptcha": "~1.5",
 		"ramsey/uuid": "~3.0"
 	},
 

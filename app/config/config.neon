@@ -5,33 +5,26 @@
 # Include rest of the configuration
 includes:
 	- config-params.neon
+	- config-forms.neon
 
 
-# PHP Configuration
 php:
 	date.timezone: %timezone%
 
-
-# Tracy Debugger
 tracy:
 	strictMode: true
 	maxDepth: 8
 	maxLen: 750
 
-
-# Session settings
 session:
-	expiration: %session%
+	autoStart: %session.autoStart%
+	expiration: %session.lifetime%
 
-
-# Presenter properties
 application:
 	errorPresenter: Error
 	mapping:
 		*: App\*Module\Presenters\*Presenter
 
-
-# Nette mailer
 mail:
 	smtp: true
 	host: %smtp.host%
@@ -39,20 +32,25 @@ mail:
 	password: %smtp.password%
 	secure: %smtp.secure%
 
-
-# Application services
 services:
 	router: App\Services\RouterFactory::createRouter
 
-# Application extensions
 extensions:
 
 	# Kdyby components
+	translation: Kdyby\Translation\DI\TranslationExtension
 	console: Kdyby\Console\DI\ConsoleExtension
 	events: Kdyby\Events\DI\EventsExtension
 	annotations: Kdyby\Annotations\DI\AnnotationsExtension
 	doctrine: Kdyby\Doctrine\DI\OrmExtension
 	redis: Kdyby\Redis\DI\RedisExtension
+
+
+# Kdyby \ Translation
+translation:
+	default: %lang.default%
+	whitelist: %lang.allowed%
+	dirs: [%appDir%/locale]
 
 
 # Kdyby \ Redis
