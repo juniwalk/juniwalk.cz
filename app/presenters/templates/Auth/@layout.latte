@@ -1,0 +1,33 @@
+{layout '../@layout.latte'}
+{block body}
+<body class="gray-bg">
+
+	<div class="middle-box text-center animated fadeInDown">
+
+		<div>
+			<h1 class="logo-name">IN+</h1>
+		</div>
+
+		{include content}
+
+		<p class="m-t"><strong>Martin Procházka</strong> &copy; {date('Y')}</p>
+
+	</div>
+
+	<!-- Mainly scripts -->
+	<script src="{$basePath}/js/jquery-2.1.1.js"></script>
+	<script src="{$basePath}/js/bootstrap.min.js"></script>
+
+	<!-- iCheck -->
+	<script src="{$basePath}/js/plugins/iCheck/icheck.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('.i-checks').iCheck({
+			checkboxClass: 'icheckbox_square-green',
+			radioClass: 'iradio_square-green',
+		});
+	});
+	</script>
+
+</body>
+{/block}

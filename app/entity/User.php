@@ -16,13 +16,16 @@ use Nette\Utils\Strings;
 use Ramsey\Uuid\Uuid;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Entity\UserRepository")
  * @ORM\Table(name="`user`")
  */
 class User implements \Nette\Security\IIdentity
 {
-	use \Kdyby\Doctrine\Entities\Attributes\UniversallyUniqueIdentifier;
-
+	/**
+	 * @ORM\Column(type="guid") @ORM\Id
+	 * @var string
+	 */
+	private $id;
 
 	/**
 	 * @ORM\Column(type="string", length=16, nullable=true)
@@ -82,6 +85,21 @@ class User implements \Nette\Security\IIdentity
 	}
 
 
+	public function __clone()
+	{
+		$this->id = NULL;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	final public function getId() : string
+	{
+		return $this->id;
+	}
+
+
 	/**
 	 * @return string[]
 	 */
@@ -101,10 +119,21 @@ class User implements \Nette\Security\IIdentity
 
 
 	/**
+	 * Set signIn time to current timestamp.
+	 * @return static
+	 */
+	public function signedIn() : self
+	{
+		$this->signIn = new \DateTime;
+		return $this;
+	}
+
+
+	/**
 	 * @param string  $firstName
 	 * @param string  $lastName
 	 */
-	public function rename(string $firstName = NULL, string $lastName = NULL) : void
+	public function rename(string $firstName = NULL, string $lastName = NULL)
 	{
 		$this->firstName = $firstName;
 		$this->lastName = $lastName;
@@ -114,7 +143,7 @@ class User implements \Nette\Security\IIdentity
 	/**
 	 * @param string  $value
 	 */
-	public function changeEmail(string $value) : void
+	public function changeEmail(string $value)
 	{
 		$this->email = Strings::lower($value);
 	}
@@ -123,9 +152,9 @@ class User implements \Nette\Security\IIdentity
 	/**
 	 * @param string  $value
 	 */
-	public function changePassword(string $value) : void
+	public function changePassword(string $value)
 	{
-		$this->password = $value ? Passwords::hash($value) : null;
+		$this->password = $value ? Passwords::hash($value) : NULL;
 	}
 
 

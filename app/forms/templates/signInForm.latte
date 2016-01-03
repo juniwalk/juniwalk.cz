@@ -1,0 +1,32 @@
+<div class="ibox-content" n:snippet="form">
+
+	{form form class => 'm-t text-left'}
+
+		<div class="form-group">
+			<input type="email" n:name="email" class="form-control" placeholder="{_user.auth.email}" required="">
+		</div>
+		<div class="form-group">
+			<input type="password" n:name="password" class="form-control" placeholder="{_user.auth.password}" required="">
+		</div>
+		<div class="form-group">
+			<label class="checkbox i-checks"><input type="checkbox" n:name="remember"> {_user.auth.rememberMe}</label>
+		</div>
+
+		<button type="submit" n:name="submit" class="btn btn-primary btn-block m-b">{_user.auth.signIn}</button>
+
+	{/form}
+
+	<a href="#"><small>Forgot password?</small></a>
+	<p class="text-muted text-center"><small>Do not have an account?</small></p>
+	<a class="btn btn-default btn-sm btn-block" href="{plink Auth:signUp}">{_user.auth.signUp}</a>
+
+	<style type="text/css">
+	.checkbox input[type="checkbox"],
+	.checkbox-inline input[type="checkbox"],
+	.radio input[type="radio"],
+	.radio-inline input[type="radio"] {
+		margin-left: -0px;
+	}
+	</style>
+
+</div>

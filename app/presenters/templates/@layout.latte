@@ -9,14 +9,15 @@
 
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="{$basePath}/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{$basePath}/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	<link href="{$basePath}/css/animate.css" rel="stylesheet">
+	<link href="{$basePath}/css/plugins/iCheck/custom.css" rel="stylesheet">
+	<link href="{$basePath}/css/style.css" rel="stylesheet">
 
 </head>
-<body>
+<body n:block="body">
 <div id="wrapper">
 
 	<nav class="navbar-default navbar-static-side" role="navigation">
@@ -55,7 +56,7 @@
 					</form>
 				</div>
 				<ul class="nav navbar-top-links navbar-right">
-					<li><a href="#"><i class="fa fa-sign-out"></i> Log out</a></li>
+					<li><a n:href="Auth:signOut"><i class="fa fa-sign-out"></i> Log out</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -69,21 +70,21 @@
 
 		<div class="footer">
 			<div class="pull-right">10GB of <strong>250GB</strong> Free.</div>
-			<div><strong>Copyright</strong> Example Company &copy; 2014-2015</div>
+			<div><strong>Martin Procházka</strong> &copy; {date('Y')}</div>
 		</div>
 
 	</div>
 </div>
 
 <!-- Mainly scripts -->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="{$basePath}/js/jquery-2.1.1.js"></script>
+<script src="{$basePath}/js/bootstrap.min.js"></script>
+<script src="{$basePath}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="{$basePath}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
 <!-- Custom and plugin javascript -->
-<script src="js/inspinia.js"></script>
-<script src="js/plugins/pace/pace.min.js"></script>
+<script src="{$basePath}/js/inspinia.js"></script>
+<script src="{$basePath}/js/plugins/pace/pace.min.js"></script>
 
 </body>
 </html>

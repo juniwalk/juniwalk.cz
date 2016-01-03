@@ -34,6 +34,10 @@ mail:
 
 services:
 	router: App\Services\RouterFactory::createRouter
+	authenticator: App\Services\Authenticator
+
+	# Doctrine repositories
+	- App\Entity\UserRepository
 
 extensions:
 

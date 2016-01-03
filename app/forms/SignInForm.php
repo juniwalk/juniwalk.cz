@@ -1,19 +1,15 @@
 <?php
 
 /**
- * @author    Design Point <info@dpoint.cz>
- * @package   PT Project
- * @link      https://app.ptproject.cz
- * @copyright Design Point (c) 2015
- * @license   Proprietary
+ * @author    Martin Procházka <juniwalk@outlook.cz>
+ * @package   www.juniwalk.cz
+ * @link      https://github.com/juniwalk/www.juniwalk.cz
+ * @copyright Martin Procházka (c) 2015
+ * @license   MIT License
  */
 
 namespace App\Forms;
 
-use Minetro\Forms\reCAPTCHA\ReCaptchaField;
-use Minetro\Forms\reCAPTCHA\ReCaptchaHolder;
-use Nette\Http\Session;
-use Nette\Forms\Form;
 use Nette\Security\AuthenticationException;
 use Nette\Security\User;
 
@@ -22,20 +18,24 @@ final class SignInForm extends \JuniWalk\Forms\FormControl
     /** @var User */
     private $user;
 
-    /** @var Nette\Http\SessionSection */
-    private $session;
-
 
     /**
-     * @param User     $user     User instance
-     * @param Session  $session  Session provider
+     * @param User  $user
      */
-    public function __construct(User $user, Session $session)
+    public function __construct(User $user)
     {
-        //$this->session = $session->getSection('signInAttempt')->setExpiration('20 minutes');
+		$this->setTemplateFile(__DIR__.'/templates/signInForm.latte');
         $this->user = $user;
-        parent::__construct();
     }
+
+
+	/**
+	 * @return User
+	 */
+	public function getUser() : User
+	{
+		return $this->user;
+	}
 
 
 	/**
@@ -45,28 +45,14 @@ final class SignInForm extends \JuniWalk\Forms\FormControl
 	protected function createComponentForm($name)
 	{
 		$form = parent::createComponentForm($name);
-
-        // Email is needed for the signin process
-        $form->addText('email', 'client.auth.login')
-            ->setType('email')->setAttribute('autofocus')
+        $form->addText('email')->setAttribute('autofocus')
             ->setRequired('client.auth.login-required')
             ->addRule($form::EMAIL, 'client.auth.login-invalid');
-
-        // We can't authenticate without the password
-        $form->addPassword('password', 'client.auth.password')
+        $form->addPassword('password')
             ->setRequired('client.auth.password-required')
             ->addRule($form::MIN_LENGTH, 'client.auth.password-length', 6);
-
-        // If there was more than 5 attempts
-        //if ($this->session->attempt > 4) {
-		//	$this->addReCaptcha($form, 'captcha', 'client.auth.captcha')
-        //        ->setRequired('client.auth.captcha-required');
-        //}
-
-        // Optional - Allow extended session lifetime
-        $form->addCheckbox('remember', 'client.auth.rememberMe');
-
-        $form->addSubmit('submit', 'client.auth.signIn');
+        $form->addCheckbox('remember');
+        $form->addSubmit('submit');
 
 		return $form;
 	}
@@ -78,38 +64,22 @@ final class SignInForm extends \JuniWalk\Forms\FormControl
      */
     protected function handleSuccess($form, $data)
     {
-        $user = $this->user->setExpiration('14 days');
+    	$user = $this->getUser();
+        $user->setExpiration('2 weeks');
 
-        // We shall not remember
         if (!$data->remember) {
             $user->setExpiration('1 hour', $user::BROWSER_CLOSED);
         }
 
         try {
-        //    $this->session->attempt += 1;
             $user->login($data->email, $data->password);
 
         } catch (AuthenticationException $e) {
-            return $this->addError($form, $e->getMessage());
+            return $form->addError($e->getMessage());
 
         } catch (\Exception $e) {
-        	return $this->addError($form, 'client.general.error');
+			return $form->addError('app.general.error');
         }
-
-        // Clear all previous attempts
-        //unset($this->session->attempt);
-    }
-
-
-    /**
-     * @param  Form    $form   Form instance
-     * @param  string  $name   Field name
-     * @param  string  $label  Html label
-     * @return ReCaptchaField
-     */
-    public function addReCaptcha(Form $form, string $name, string $label = NULL) : ReCaptchaField
-    {
-        return $form[$name] = new ReCaptchaField(ReCaptchaHolder::getSiteKey(), $label);
     }
 }
 
