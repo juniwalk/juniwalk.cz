@@ -286,16 +286,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.5.3",
+            "version": "v2.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "2fbcea96eae34a53183377cdbb0b9bec33974648"
+                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/2fbcea96eae34a53183377cdbb0b9bec33974648",
-                "reference": "2fbcea96eae34a53183377cdbb0b9bec33974648",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
+                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
                 "shasum": ""
             },
             "require": {
@@ -353,7 +353,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-12-25 16:28:24"
+            "time": "2016-01-05 22:11:12"
         },
         {
             "name": "doctrine/inflector",
@@ -532,16 +532,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.5.3",
+            "version": "v2.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "d9fc5388f1aa1751a0e148e76b4569bd207338e9"
+                "reference": "bc4ddbfb0114cb33438cc811c9a740d8aa304aab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/d9fc5388f1aa1751a0e148e76b4569bd207338e9",
-                "reference": "d9fc5388f1aa1751a0e148e76b4569bd207338e9",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
+                "reference": "bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
                 "shasum": ""
             },
             "require": {
@@ -556,7 +556,6 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "dev-master",
                 "symfony/yaml": "~2.3|~3.0"
             },
             "suggest": {
@@ -605,20 +604,20 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-12-25 15:50:05"
+            "time": "2016-01-05 21:34:58"
         },
         {
             "name": "juniwalk/forms",
-            "version": "v1.0.0-alpha5",
+            "version": "v1.0.0-alpha6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/juniwalk/Forms.git",
-                "reference": "9bfa509c71205adbf4aa91d35807bcd58c656524"
+                "reference": "dce4ffef9176d8350e5ee03f39f04629ceae8d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juniwalk/Forms/zipball/9bfa509c71205adbf4aa91d35807bcd58c656524",
-                "reference": "9bfa509c71205adbf4aa91d35807bcd58c656524",
+                "url": "https://api.github.com/repos/juniwalk/Forms/zipball/dce4ffef9176d8350e5ee03f39f04629ceae8d3d",
+                "reference": "dce4ffef9176d8350e5ee03f39f04629ceae8d3d",
                 "shasum": ""
             },
             "require": {
@@ -653,7 +652,7 @@
                 "nette",
                 "nettefw"
             ],
-            "time": "2015-12-30 13:53:24"
+            "time": "2016-01-04 14:56:30"
         },
         {
             "name": "kdyby/annotations",
@@ -1782,12 +1781,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/http.git",
-                "reference": "385064a2ccabb141103e4785fa0a3969a07dfe25"
+                "reference": "8fff6ee824e2d6bc1e1a1707362205c41b4e2bad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/http/zipball/385064a2ccabb141103e4785fa0a3969a07dfe25",
-                "reference": "385064a2ccabb141103e4785fa0a3969a07dfe25",
+                "url": "https://api.github.com/repos/nette/http/zipball/8fff6ee824e2d6bc1e1a1707362205c41b4e2bad",
+                "reference": "8fff6ee824e2d6bc1e1a1707362205c41b4e2bad",
                 "shasum": ""
             },
             "require": {
@@ -1833,7 +1832,7 @@
             ],
             "description": "Nette HTTP Component",
             "homepage": "https://nette.org",
-            "time": "2015-11-29 21:49:50"
+            "time": "2016-01-08 23:45:40"
         },
         {
             "name": "nette/mail",
@@ -2636,12 +2635,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "5935b32c6b5e9e7baef5140819b5c2a7089e5f45"
+                "reference": "7d687fb4797cee28c9c8a3ef09c76c22425b73f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/5935b32c6b5e9e7baef5140819b5c2a7089e5f45",
-                "reference": "5935b32c6b5e9e7baef5140819b5c2a7089e5f45",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/7d687fb4797cee28c9c8a3ef09c76c22425b73f4",
+                "reference": "7d687fb4797cee28c9c8a3ef09c76c22425b73f4",
                 "shasum": ""
             },
             "require": {
@@ -2688,7 +2687,7 @@
                 "debugger",
                 "nette"
             ],
-            "time": "2015-12-17 14:33:21"
+            "time": "2016-01-09 17:42:26"
         }
     ],
     "packages-dev": [],
