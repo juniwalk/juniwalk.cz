@@ -67,7 +67,7 @@ class User implements \Nette\Security\IIdentity
 	 * @ORM\Column(type="boolean")
 	 * @var bool
 	 */
-	private $isBanned = false;
+	private $isBanned = FALSE;
 
 
 	/**
@@ -85,9 +85,18 @@ class User implements \Nette\Security\IIdentity
 	}
 
 
+	/**
+	 * @return string
+	 */
+	public function __toString() : string
+	{
+		return Strings::webalize($this->firstName.' '.$this->lastName);
+	}
+
+
 	public function __clone()
 	{
-		$this->id = NULL;
+		$this->id = Uuid::uuid4()->toString();
 	}
 
 

@@ -13,11 +13,10 @@ namespace App\Entity;
 final class UserRepository extends \Kdyby\Doctrine\EntityRepository
 {
 	/**
-	 * Get the instance of the User by email.
 	 * @param  string  $email
-	 * @return User
+	 * @return User|NULL
 	 */
-	public function getByEmail(string $email) : User
+	public function getByEmail(string $email)
 	{
 		return $this->findOneBy(['email' => $email]);
 	}

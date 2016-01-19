@@ -16,15 +16,12 @@ use Nette\Application\Routers\RouteList;
 final class RouterFactory
 {
 	/**
-	 * Create new list of routes.
 	 * @return RouteList
 	 */
 	public static function createRouter() : RouteList
 	{
-		// Make this site HTTPS only
 		Route::$defaultFlags |= Route::SECURED;
 
-		// Create new Router instance
 		$router = new RouteList;
 		$router[] = new Route('<presenter>/<action>[/<id>]', 'Home:default');
 

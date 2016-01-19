@@ -35,7 +35,6 @@ final class Authenticator implements \Nette\Security\IAuthenticator
 
 
 	/**
-	 * Authenticate User's signin request.
 	 * @param  string[]  $login
 	 * @return IIdentity
 	 * @throws AuthenticationException
