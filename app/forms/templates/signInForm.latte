@@ -3,13 +3,22 @@
 	{form form class => 'm-t text-left'}
 
 		<div class="form-group">
-			<input type="email" n:name="email" class="form-control" placeholder="{_user.auth.email}" required="">
+			<div class="input-group">
+				<label n:name="email" class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></label>
+				<input type="email" n:name="email" class="form-control" placeholder="{_user.auth.email}" autofocus="">
+			</div>
 		</div>
 		<div class="form-group">
-			<input type="password" n:name="password" class="form-control" placeholder="{_user.auth.password}" required="">
+			<div class="input-group">
+				<label n:name="password" class="input-group-addon"><i class="fa fa-fw fa-lock"></i></label>
+				<input type="password" n:name="password" class="form-control" placeholder="{_user.auth.password}">
+			</div>
 		</div>
 		<div class="form-group">
-			<label class="checkbox i-checks"><input type="checkbox" n:name="remember"> {_user.auth.rememberMe}</label>
+			<label n:name="remember" class="checkbox i-checks">
+				<input type="checkbox" n:name="remember">
+				<strong>{_user.auth.rememberMe}</strong>
+			</label>
 		</div>
 
 		<button type="submit" n:name="submit" class="btn btn-primary btn-block m-b">{_user.auth.signIn}</button>

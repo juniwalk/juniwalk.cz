@@ -3,19 +3,31 @@
 	{form form class => 'm-t text-left'}
 
 		<div class="form-group">
-			<input type="text" n:name="name" class="form-control" placeholder="{_user.auth.name}" required="">
+			<div class="input-group">
+				<label n:name="name" class="input-group-addon"><i class="fa fa-fw fa-user"></i></label>
+				<input type="text" n:name="name" class="form-control" placeholder="{_user.auth.name}" autofocus="">
+			</div>
 		</div>
 		<div class="form-group">
-			<input type="email" n:name="email" class="form-control" placeholder="{_user.auth.email}" required="">
+			<div class="input-group">
+				<label n:name="email" class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></label>
+				<input type="email" n:name="email" class="form-control" placeholder="{_user.auth.email}">
+			</div>
 		</div>
 		<div class="form-group">
-			<input type="password" n:name="password" class="form-control" placeholder="{_user.auth.password}" required="">
+			<div class="input-group">
+				<label n:name="password" class="input-group-addon"><i class="fa fa-fw fa-lock"></i></label>
+				<input type="password" n:name="password" class="form-control" placeholder="{_user.auth.password}">
+			</div>
 		</div>
 		<div class="form-group">
-			<label class="checkbox i-checks"><input type="checkbox" n:name="agreement"> {_user.auth.agreement}</label>
+			<label n:name="agreement" class="checkbox i-checks">
+				<input type="checkbox" n:name="agreement">
+				<strong>{_user.auth.agreement}</strong>
+			</label>
 		</div>
 
-		<button type="submit" n:name="submit" class="btn btn-primary btn-block m-b">{_user.auth.signUp}</button>
+		<input type="submit" n:name="submit" class="btn btn-primary btn-block m-b" value="{_user.auth.signUp}">
 
 	{/form}
 

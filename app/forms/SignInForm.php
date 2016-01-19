@@ -44,12 +44,10 @@ final class SignInForm extends \JuniWalk\Forms\FormControl
 	 */
 	protected function createComponentForm($name)
 	{
-		$form = parent::createComponentForm($name);
-        $form->addText('email')->setAttribute('autofocus')
-            ->setRequired('client.auth.login-required')
+		$form = $this->createForm($name);
+        $form->addText('email')->setRequired('client.auth.login-required')
             ->addRule($form::EMAIL, 'client.auth.login-invalid');
-        $form->addPassword('password')
-            ->setRequired('client.auth.password-required')
+        $form->addPassword('password')->setRequired('client.auth.password-required')
             ->addRule($form::MIN_LENGTH, 'client.auth.password-length', 6);
         $form->addCheckbox('remember');
         $form->addSubmit('submit');
@@ -59,8 +57,8 @@ final class SignInForm extends \JuniWalk\Forms\FormControl
 
 
     /**
-     * @param static  $form  Form instance
-     * @param mixed   $data  Submited data
+     * @param static  $form
+     * @param mixed   $data
      */
     protected function handleSuccess($form, $data)
     {

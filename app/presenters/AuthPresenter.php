@@ -14,8 +14,11 @@ use Nette\Utils\Html;
 
 final class AuthPresenter extends \Nette\Application\UI\Presenter
 {
-	/** @var \JuniWalk\Forms\FormLocator @inject */
-	public $formLocator;
+	/** @var \App\Forms\ISignInFormFactory @inject */
+	public $signInForm;
+
+	/** @var \App\Forms\ISignUpFormFactory @inject */
+	public $signUpForm;
 
 
 	/**
@@ -38,13 +41,12 @@ final class AuthPresenter extends \Nette\Application\UI\Presenter
 
 
 	/**
-	 * Create new instance of the Form component.
-	 * @param  string  $name  Component name
+	 * @param  string  $name
 	 * @return Nette\Forms\Form
 	 */
 	protected function createComponentSignInForm(string $name)
 	{
-		$form = $this->formLocator->find('signIn');
+		$form = $this->signInForm->create();
 		$form->onSuccess[] = function($form, $data) {
 			$this->redirect('Home:');
 		};
@@ -54,13 +56,12 @@ final class AuthPresenter extends \Nette\Application\UI\Presenter
 
 
 	/**
-	 * Create new instance of the Form component.
-	 * @param  string  $name  Component name
+	 * @param  string  $name
 	 * @return Nette\Forms\Form
 	 */
 	protected function createComponentSignUpForm(string $name)
 	{
-		$form = $this->formLocator->find('signUp');
+		$form = $this->signUpForm->create();
 		$form->onSuccess[] = function($form, $data) {
 			$this->redirect('Home:');
 		};

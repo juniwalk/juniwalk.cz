@@ -36,9 +36,8 @@ final class SignUpForm extends \JuniWalk\Forms\FormControl
 	 */
 	protected function createComponentForm($name)
 	{
-		$form = parent::createComponentForm($name);
-        $form->addText('name')->setRequired('client.auth.login-required')
-			->setAttribute('autofocus');
+		$form = $this->createForm($name);
+        $form->addText('name')->setRequired('client.auth.login-required');
         $form->addText('email')->setRequired('client.auth.login-required')
             ->addRule($form::EMAIL, 'client.auth.login-invalid');
         $form->addPassword('password')->setRequired('client.auth.password-required')
