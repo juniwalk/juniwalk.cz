@@ -22,8 +22,8 @@ use Ramsey\Uuid\Uuid;
 class User implements \Nette\Security\IIdentity
 {
 	/**
-	 * @ORM\Column(type="guid") @ORM\Id
-	 * @var string
+	 * @ORM\Column(type="uuid", unique=true) @ORM\Id
+	 * @var Uuid
 	 */
 	private $id;
 
@@ -78,7 +78,7 @@ class User implements \Nette\Security\IIdentity
 	public function __construct(string $email, string $firstName = NULL, string $lastName = NULL)
 	{
 		$this->signUp = new \DateTime($this->signUp);
-		$this->id = Uuid::uuid4()->toString();
+		$this->id = Uuid::uuid4();
 
 		$this->rename($firstName, $lastName);
 		$this->changeEmail($email);
@@ -94,16 +94,19 @@ class User implements \Nette\Security\IIdentity
 	}
 
 
+	/**
+	 * Make sure UUID is still unique.
+	 */
 	public function __clone()
 	{
-		$this->id = Uuid::uuid4()->toString();
+		$this->id = Uuid::uuid4();
 	}
 
 
 	/**
-	 * @return string
+	 * @return Uuid
 	 */
-	final public function getId() : string
+	final public function getId() : Uuid
 	{
 		return $this->id;
 	}

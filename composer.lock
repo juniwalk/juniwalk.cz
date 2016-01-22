@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d1174199ee6922c72c8859756d1c3309",
-    "content-hash": "88a64490efcd2b71adc8ea2172699851",
+    "hash": "bc0ecf4f98b45985b797998462adcf2c",
+    "content-hash": "e1ee771d0a376cdd93c087e853613258",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1368,12 +1368,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/application.git",
-                "reference": "b264793823cd76286f33cbc9e91f0b661d01f856"
+                "reference": "3fe619f4c99108dba387dba185bc00e931642988"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/application/zipball/b264793823cd76286f33cbc9e91f0b661d01f856",
-                "reference": "b264793823cd76286f33cbc9e91f0b661d01f856",
+                "url": "https://api.github.com/repos/nette/application/zipball/3fe619f4c99108dba387dba185bc00e931642988",
+                "reference": "3fe619f4c99108dba387dba185bc00e931642988",
                 "shasum": ""
             },
             "require": {
@@ -1427,7 +1427,7 @@
             ],
             "description": "Nette Application MVC Component",
             "homepage": "https://nette.org",
-            "time": "2016-01-18 14:25:55"
+            "time": "2016-01-22 03:07:24"
         },
         {
             "name": "nette/bootstrap",
@@ -1667,16 +1667,16 @@
         },
         {
             "name": "nette/finder",
-            "version": "v2.3.1",
+            "version": "v2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/finder.git",
-                "reference": "38f803a03f4cddf352e28af70294c71f7026e516"
+                "reference": "ea8e796b42d542bd90e76f5b2a41c2c86a008256"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/finder/zipball/38f803a03f4cddf352e28af70294c71f7026e516",
-                "reference": "38f803a03f4cddf352e28af70294c71f7026e516",
+                "url": "https://api.github.com/repos/nette/finder/zipball/ea8e796b42d542bd90e76f5b2a41c2c86a008256",
+                "reference": "ea8e796b42d542bd90e76f5b2a41c2c86a008256",
                 "shasum": ""
             },
             "require": {
@@ -1704,16 +1704,16 @@
             "authors": [
                 {
                     "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
+                    "homepage": "https://davidgrudl.com"
                 },
                 {
                     "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
+                    "homepage": "https://nette.org/contributors"
                 }
             ],
             "description": "Nette Finder: Files Searching",
-            "homepage": "http://nette.org",
-            "time": "2015-07-11 21:13:50"
+            "homepage": "https://nette.org",
+            "time": "2015-10-20 17:15:41"
         },
         {
             "name": "nette/forms",
@@ -1721,12 +1721,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/forms.git",
-                "reference": "571108e5feefad0652a889278a56945ef593d139"
+                "reference": "39a4a407e903f7151c79247db13f1c1302326e49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/forms/zipball/571108e5feefad0652a889278a56945ef593d139",
-                "reference": "571108e5feefad0652a889278a56945ef593d139",
+                "url": "https://api.github.com/repos/nette/forms/zipball/39a4a407e903f7151c79247db13f1c1302326e49",
+                "reference": "39a4a407e903f7151c79247db13f1c1302326e49",
                 "shasum": ""
             },
             "require": {
@@ -1773,7 +1773,7 @@
             ],
             "description": "Nette Forms: greatly facilitates web forms",
             "homepage": "https://nette.org",
-            "time": "2016-01-18 11:44:07"
+            "time": "2016-01-21 16:56:56"
         },
         {
             "name": "nette/http",
@@ -1896,16 +1896,16 @@
         },
         {
             "name": "nette/neon",
-            "version": "v2.3.3",
+            "version": "v2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/neon.git",
-                "reference": "12bbb0e85ba8521dd291f4df0fe20a1b79aae32c"
+                "reference": "0042f72a2c51b24f5de3ca5f365494cd9b0d45f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/neon/zipball/12bbb0e85ba8521dd291f4df0fe20a1b79aae32c",
-                "reference": "12bbb0e85ba8521dd291f4df0fe20a1b79aae32c",
+                "url": "https://api.github.com/repos/nette/neon/zipball/0042f72a2c51b24f5de3ca5f365494cd9b0d45f0",
+                "reference": "0042f72a2c51b24f5de3ca5f365494cd9b0d45f0",
                 "shasum": ""
             },
             "require": {
@@ -1930,16 +1930,16 @@
             "authors": [
                 {
                     "name": "David Grudl",
-                    "homepage": "http://davidgrudl.com"
+                    "homepage": "https://davidgrudl.com"
                 },
                 {
                     "name": "Nette Community",
-                    "homepage": "http://nette.org/contributors"
+                    "homepage": "https://nette.org/contributors"
                 }
             ],
             "description": "Nette NEON: parser & generator for Nette Object Notation",
             "homepage": "http://ne-on.org",
-            "time": "2015-08-22 15:23:30"
+            "time": "2016-01-13 14:20:27"
         },
         {
             "name": "nette/php-generator",
@@ -1947,12 +1947,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/php-generator.git",
-                "reference": "25c327711b1b93ae61b29a1e13dd717534b63b1d"
+                "reference": "3347ceee2074a7b331ffb12d72e715a75d5db3ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/php-generator/zipball/25c327711b1b93ae61b29a1e13dd717534b63b1d",
-                "reference": "25c327711b1b93ae61b29a1e13dd717534b63b1d",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/3347ceee2074a7b331ffb12d72e715a75d5db3ff",
+                "reference": "3347ceee2074a7b331ffb12d72e715a75d5db3ff",
                 "shasum": ""
             },
             "require": {
@@ -1994,7 +1994,7 @@
             ],
             "description": "Nette PHP Generator",
             "homepage": "https://nette.org",
-            "time": "2015-11-27 10:45:52"
+            "time": "2016-01-20 03:54:02"
         },
         {
             "name": "nette/reflection",
@@ -2348,6 +2348,62 @@
             "time": "2015-12-17 15:21:44"
         },
         {
+            "name": "ramsey/uuid-doctrine",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid-doctrine.git",
+                "reference": "2278bf22fbd92ed97d293c89f659b23902275e2c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid-doctrine/zipball/2278bf22fbd92ed97d293c89f659b23902275e2c",
+                "reference": "2278bf22fbd92ed97d293c89f659b23902275e2c",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.3",
+                "php": ">=5.4",
+                "ramsey/uuid": "^3.0"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "^0.9.0",
+                "phpunit/phpunit": "^4.7",
+                "satooshi/php-coveralls": "^0.6.1",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramsey\\Uuid\\Doctrine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marijn Huizendveld",
+                    "email": "marijn.huizendveld@gmail.com"
+                },
+                {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "http://benramsey.com"
+                }
+            ],
+            "description": "Allow the use of a ramsey/uuid UUID as Doctrine field type.",
+            "homepage": "https://github.com/ramsey/uuid-doctrine",
+            "keywords": [
+                "doctrine",
+                "guid",
+                "identifier",
+                "uuid"
+            ],
+            "time": "2015-10-19 17:44:57"
+        },
+        {
             "name": "symfony/config",
             "version": "v2.8.2",
             "source": {
@@ -2635,12 +2691,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "44bbe3cd3069cdcc60270a3f8188eab1d68888aa"
+                "reference": "3761a6814932b500b65735ca08fa27d8f914421c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/44bbe3cd3069cdcc60270a3f8188eab1d68888aa",
-                "reference": "44bbe3cd3069cdcc60270a3f8188eab1d68888aa",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/3761a6814932b500b65735ca08fa27d8f914421c",
+                "reference": "3761a6814932b500b65735ca08fa27d8f914421c",
                 "shasum": ""
             },
             "require": {
@@ -2687,7 +2743,7 @@
                 "debugger",
                 "nette"
             ],
-            "time": "2016-01-11 15:36:35"
+            "time": "2016-01-20 03:15:20"
         }
     ],
     "packages-dev": [],
