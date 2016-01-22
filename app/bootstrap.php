@@ -8,15 +8,7 @@
  * @license   MIT License
  */
 
-namespace App;
-
 include __DIR__.'/../vendor/autoload.php';
-
-$enableDebugFor = [
-	'192.168.1.1',		// Router (local)
-	'109.81.187.90',	// Home
-	'84.242.96.106',	// Design Point
-];
 
 $di = new \Nette\Configurator;
 $di->addConfig(__DIR__.'/config/config.neon');
@@ -26,7 +18,7 @@ $di->addParameters([
 	'appDir' => __DIR__,
 ]);
 
-$di->setDebugMode($enableDebugFor);
+$di->setDebugMode(include __DIR__.'/config/config-ipconf.php');
 $di->enableDebugger(__DIR__.'/../log');
 
 $di->createRobotLoader()

@@ -1,2 +1,3 @@
-/vendor
 app/config/config-params.neon
+app/config/config-ipconf.php
+/vendor
