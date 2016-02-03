@@ -4,13 +4,11 @@
 	"type": "project",
 	"license": "MIT",
 
-	"authors": [
-		{
-			"name": "Martin Procházka",
-			"email": "juniwalk@outlook.cz",
-			"role": "Developer"
-		}
-	],
+	"authors": [{
+		"name": "Martin Procházka",
+		"email": "juniwalk@outlook.cz",
+		"role": "Developer"
+	}],
 
 	"require": {
 		"nette/application": "~2.4",
@@ -25,15 +23,14 @@
 		"nette/security": "~2.4",
 		"latte/latte": "~2.4",
 		"tracy/tracy": "~2.4",
-        "kdyby/translation": "~2.2",
-		"kdyby/redis": "~3.3",
+		"kdyby/translation": "~2.2",
 		"kdyby/doctrine": "~3.0",
 		"juniwalk/forms": "~1.0",
-        "minetro/recaptcha": "~1.5",
+		"minetro/recaptcha": "~1.5",
 		"ramsey/uuid": "~3.0",
 		"ramsey/uuid-doctrine": "~1.0"
 	},
 
-    "minimum-stability": "dev",
-    "prefer-stable": true
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }

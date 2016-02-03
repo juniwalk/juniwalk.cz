@@ -48,7 +48,6 @@ extensions:
 	events: Kdyby\Events\DI\EventsExtension
 	annotations: Kdyby\Annotations\DI\AnnotationsExtension
 	doctrine: Kdyby\Doctrine\DI\OrmExtension
-	redis: Kdyby\Redis\DI\RedisExtension
 
 
 # Kdyby \ Translation
@@ -56,13 +55,6 @@ translation:
 	default: %lang.default%
 	whitelist: %lang.allowed%
 	dirs: [%appDir%/locale]
-
-
-# Kdyby \ Redis
-redis:
-	journal: on
-	storage: on
-	session: {database: 1, native: off}
 
 
 # Kdyby \ Doctrine
