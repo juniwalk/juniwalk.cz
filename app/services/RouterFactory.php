@@ -23,6 +23,7 @@ final class RouterFactory
 		Route::$defaultFlags |= Route::SECURED;
 
 		$router = new RouteList;
+		$router[] = new Route('admin/<presenter>/<action>[/<id>]', ['module' => 'Admin', 'presenter' => 'Home', 'action' => 'default']);
 		$router[] = new Route('<presenter>/<action>[/<id>]', 'Home:default');
 
 		return $router;
