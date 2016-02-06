@@ -3,7 +3,7 @@
 
 extensions:
 	recaptcha: Minetro\Forms\reCAPTCHA\ReCaptchaExtension
-	form: JuniWalk\Forms\DI\FormsExtension
+	form: JuniWalk\Form\DI\FormExtension
 
 
 # Minetro \ reCAPTCHA

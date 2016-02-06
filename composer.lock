@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "42cca397078c033c3785f8d7b0a56d43",
-    "content-hash": "f302b1cff5c5f8c8fc8c93442ba267f1",
+    "hash": "d43ebd248d9ef648cb3b095940712713",
+    "content-hash": "0d9f054898fc72f5c8f7f9391f9810ea",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -608,31 +608,28 @@
         },
         {
             "name": "juniwalk/form",
-            "version": "v1.0.0-beta1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/juniwalk/form.git",
-                "reference": "013929946047bfb424658c7240ba6cd1c0d88a53"
+                "reference": "b94586ea6050f0b1cb5edba016b739404ef6510b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/juniwalk/form/zipball/013929946047bfb424658c7240ba6cd1c0d88a53",
-                "reference": "013929946047bfb424658c7240ba6cd1c0d88a53",
+                "url": "https://api.github.com/repos/juniwalk/form/zipball/b94586ea6050f0b1cb5edba016b739404ef6510b",
+                "reference": "b94586ea6050f0b1cb5edba016b739404ef6510b",
                 "shasum": ""
             },
             "require": {
-                "nette/application": "~2.2",
-                "nette/di": "~2.2",
-                "nette/forms": "~2.2",
-                "php": ">=5.4.0"
-            },
-            "suggest": {
-                "juniwalk/forms-renderer": "Render Forms using Bootstrap 3."
+                "nette/application": "~2.0",
+                "nette/di": "~2.0",
+                "nette/forms": "~2.0",
+                "php": ">=5.5"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "JuniWalk\\Forms\\": "src/"
+                    "JuniWalk\\Form\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -646,13 +643,13 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Nette Forms as component.",
+            "description": "Helper to use nette/forms as a components.",
             "keywords": [
                 "Forms",
                 "nette",
                 "nettefw"
             ],
-            "time": "2016-01-19 13:33:37"
+            "time": "2016-02-05 20:49:30"
         },
         {
             "name": "kdyby/annotations",
@@ -2663,7 +2660,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "juniwalk/form": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

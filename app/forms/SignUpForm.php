@@ -14,7 +14,7 @@ use App\Entity\User;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Doctrine\ORM\EntityManagerInterface as EntityManager;
 
-final class SignUpForm extends \JuniWalk\Forms\FormControl
+final class SignUpForm extends \JuniWalk\Form\FormControl
 {
 	/** @var EntityManager */
 	private $entityManager;

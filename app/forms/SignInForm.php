@@ -13,7 +13,7 @@ namespace App\Forms;
 use Nette\Security\AuthenticationException;
 use Nette\Security\User;
 
-final class SignInForm extends \JuniWalk\Forms\FormControl
+final class SignInForm extends \JuniWalk\Form\FormControl
 {
     /** @var User */
     private $user;
