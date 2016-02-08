@@ -24,7 +24,7 @@ final class SignInForm extends \JuniWalk\Form\FormControl
      */
     public function __construct(User $user)
     {
-		$this->setTemplateFile(__DIR__.'/templates/signInForm.latte');
+		$this->setFormTemplate(__DIR__.'/templates/signInForm.latte');
         $this->user = $user;
     }
 

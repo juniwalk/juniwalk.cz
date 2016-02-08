@@ -25,7 +25,7 @@ final class SignUpForm extends \JuniWalk\Form\FormControl
      */
     public function __construct(EntityManager $entityManager)
     {
-		$this->setTemplateFile(__DIR__.'/templates/signUpForm.latte');
+		$this->setFormTemplate(__DIR__.'/templates/signUpForm.latte');
 		$this->entityManager = $entityManager;
     }
 
