@@ -4,6 +4,10 @@
 extensions:
 	webloader: WebLoader\Nette\Extension
 
+services:
+	- App\Controls\IAssetsFactory
+
+
 # JanMarek \ WebLoader
 webloader:
 	cssDefaults:
@@ -27,5 +31,5 @@ webloader:
 		tempDir: %wwwDir%/static
 		tempPath: static
 
-	css: {default: []}
-	js: {default: []}
+	css: {frontend: [], backend: []}
+	js: {frontend: [], backend: []}

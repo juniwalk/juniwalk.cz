@@ -17,10 +17,10 @@
 	<link type="image/x-icon" href="{$basePath}/favicon.ico" rel="shortcut icon">
 
 	<!-- title -->
-	<title>INSPINIA{ifset title} | {include title|striptags}{/ifset}</title>
+	<title>JUNI WALK{ifset title} | {include title|striptags}{/ifset}</title>
 
 	<!-- stylesheet -->
-	{block stylesheet|indent|trim}{control css}{/block}
+	{block stylesheet|indent|trim}{control assets:css frontend}{/block}
 	<link href="{$basePath}/css/animate.min.css" rel="stylesheet">
 	<link href="{$basePath}/css/landing-page.css" rel="stylesheet">
 
@@ -37,7 +37,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" n:href="Home:">WEBAPPLAYERS</a>
+					<a class="navbar-brand" n:href="Home:">JUNI WALK</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -58,7 +58,7 @@
 	{include content}
 
 	<!-- javascript -->
-	{block javascript|indent|trim}{control js}{/block}
+	{block javascript|indent|trim}{control assets:js frontend}{/block}
 	<script src="{$basePath}/js/plugins/pace/pace.min.js"></script>
 	<script src="{$basePath}/js/inspinia.js"></script>
 	<script src="{$basePath}/js/classie.js"></script>

@@ -12,8 +12,8 @@ namespace App\Services\Traits;
 
 trait BasePresenter
 {
-	/** @var \WebLoader\Nette\LoaderFactory @inject */
-	public $webloader;
+	/** @var \App\Controls\IAssetsFactory @inject */
+	public $assets;
 
 	/** @var \Nette\Localization\ITranslator @inject */
 	public $translator;
@@ -36,19 +36,10 @@ trait BasePresenter
 
 
 	/**
-	 * @return CssLoader
+	 * @return App\Controls\Assets
 	 */
-	protected function createComponentCss()
+	protected function createComponentAssets()
 	{
-		return $this->webloader->createCssLoader('default');
-	}
-
-
-	/**
-	 * @return JavaScriptLoader
-	 */
-	protected function createComponentJs()
-	{
-		return $this->webloader->createJavaScriptLoader('default');
+		return $this->assets->create();
 	}
 }
