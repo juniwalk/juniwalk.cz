@@ -2,16 +2,25 @@
 <html>
 <head>
 
-	<meta charset="utf-8">
+	<!-- browsers -->
+	<meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="cleartype" content="on">
 
+	<!-- speedup -->
+	<link href="//netdna.bootstrapcdn.com" rel="dns-prefetch">
+
+	<!-- favicon -->
+	<link type="image/x-icon" href="{$basePath}/favicon.ico" rel="shortcut icon">
+
+	<!-- title -->
 	<title>INSPINIA{ifset title} | {include title|striptags}{/ifset}</title>
 
-	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-
-	<link href="https://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-	<link href="https://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet">
-
+	<!-- stylesheet -->
+	{block stylesheet|indent|trim}{control css}{/block}
 	<link href="{$basePath}/css/animate.css" rel="stylesheet">
 	<link href="{$basePath}/css/plugins/iCheck/custom.css" rel="stylesheet">
 	<link href="{$basePath}/css/style.css" rel="stylesheet">
@@ -76,15 +85,12 @@
 	</div>
 </div>
 
-<!-- Mainly scripts -->
-<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<script src="{$basePath}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="{$basePath}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-<!-- Custom and plugin javascript -->
-<script src="{$basePath}/js/inspinia.js"></script>
-<script src="{$basePath}/js/plugins/pace/pace.min.js"></script>
+	<!-- javascript -->
+	{block javascript|indent|trim}{control js}{/block}
+	<script src="{$basePath}/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="{$basePath}/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="{$basePath}/js/inspinia.js"></script>
+	<script src="{$basePath}/js/plugins/pace/pace.min.js"></script>
 
 </body>
 </html>

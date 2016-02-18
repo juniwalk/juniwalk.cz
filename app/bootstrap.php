@@ -14,6 +14,7 @@ $di = new \Nette\Configurator;
 $di->addConfig(__DIR__.'/config/config.neon');
 $di->setTempDirectory(__DIR__.'/../temp');
 $di->addParameters([
+	'pkgDir' => __DIR__.'/../vendor',
 	'wwwDir' => __DIR__.'/../www',
 	'appDir' => __DIR__,
 ]);

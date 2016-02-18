@@ -12,4 +12,5 @@ namespace App\AdminModule\Presenters;
 
 final class HomePresenter extends \Nette\Application\UI\Presenter
 {
+	use \App\Services\Traits\BasePresenter;
 }

@@ -10,10 +10,11 @@
 
 namespace App\Presenters;
 
-use Nette\Utils\Html;
-
 final class AuthPresenter extends \Nette\Application\UI\Presenter
 {
+	use \App\Services\Traits\BasePresenter;
+
+
 	/** @var \App\Forms\ISignInFormFactory @inject */
 	public $signInForm;
 

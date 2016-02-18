@@ -1,0 +1,31 @@
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+
+extensions:
+	webloader: WebLoader\Nette\Extension
+
+# JanMarek \ WebLoader
+webloader:
+	cssDefaults:
+		remoteFiles:
+			- https://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
+			- https://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css
+			- https://cdn.rawgit.com/Betons/HappyComponents/master/src/assets/css/happy.min.css
+		files:
+		joinFiles: false
+		tempDir: %wwwDir%/static
+		tempPath: static
+
+	jsDefaults:
+		remoteFiles:
+			- https://code.jquery.com/jquery-2.2.0.min.js
+			- https://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js
+			- https://cdn.rawgit.com/Betons/HappyComponents/master/src/assets/js/happy.min.js
+		files:
+			- %pkgDir%/nette/forms/src/assets/netteForms.js
+		joinFiles: false
+		tempDir: %wwwDir%/static
+		tempPath: static
+
+	css: {default: []}
+	js: {default: []}

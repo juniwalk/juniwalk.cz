@@ -14,5 +14,5 @@ recaptcha:
 
 # JuniWalk \ Forms
 form:
-	signUp: App\Forms\ISignUpFormFactory
-	signIn: App\Forms\ISignInFormFactory
+	- App\Forms\ISignUpFormFactory
+	- App\Forms\ISignInFormFactory

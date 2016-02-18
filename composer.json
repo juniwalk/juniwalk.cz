@@ -28,6 +28,7 @@
 		"kdyby/doctrine": "~3.0",
 		"juniwalk/form": "~1.0",
 		"minetro/recaptcha": "~1.0",
+		"janmarek/webloader": "dev-master",
 		"ramsey/uuid": "~3.0",
 		"ramsey/uuid-doctrine": "~1.0"
 	},

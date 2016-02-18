@@ -12,6 +12,9 @@ namespace App\Entity;
 
 final class UserRepository extends \Kdyby\Doctrine\EntityRepository
 {
+	use \App\Services\Traits\BaseRepository;
+
+
 	/**
 	 * @param  string  $email
 	 * @return User|NULL

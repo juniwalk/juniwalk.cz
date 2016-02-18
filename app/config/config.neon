@@ -1,10 +1,9 @@
 # WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
 # https://nette.org/security-warning
 
-
-# Include rest of the configuration
 includes:
 	- config-params.neon
+	- config-assets.neon
 	- config-forms.neon
 
 
@@ -19,6 +18,7 @@ tracy:
 session:
 	autoStart: %session.autoStart%
 	expiration: %session.lifetime%
+	savePath: %tempDir%/sessions
 
 application:
 	errorPresenter: Error

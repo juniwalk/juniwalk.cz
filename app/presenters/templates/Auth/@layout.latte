@@ -14,20 +14,8 @@
 
 	</div>
 
-	<!-- Mainly scripts -->
-	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-	<script src="https://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-
-	<!-- iCheck -->
-	<script src="{$basePath}/js/plugins/iCheck/icheck.min.js"></script>
-	<script>
-	$(document).ready(function(){
-		$('.i-checks').iCheck({
-			checkboxClass: 'icheckbox_square-green',
-			radioClass: 'iradio_square-green',
-		});
-	});
-	</script>
+	<!-- javascript -->
+	{block javascript|indent|trim}{control js}{/block}
 
 </body>
 {/block}
