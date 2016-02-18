@@ -11,27 +11,27 @@
 	}],
 
 	"require": {
-		"nette/application": "~2.4",
-		"nette/bootstrap": "~2.4",
-		"nette/caching": "~2.4",
-		"nette/di": "~2.4",
-		"nette/forms": "~2.4",
-		"nette/http": "~2.4",
-		"nette/mail": "~2.4",
-		"nette/robot-loader": "~2.4",
-		"nette/safe-stream":"~2.3",
-		"nette/security": "~2.4",
-		"latte/latte": "~2.4",
-		"tracy/tracy": "~2.4",
-		"kdyby/translation": "~2.2",
+		"nette/application": "~2.0",
+		"nette/bootstrap": "~2.0",
+		"nette/caching": "~2.0",
+		"nette/di": "~2.0",
+		"nette/forms": "~2.0",
+		"nette/http": "~2.0",
+		"nette/mail": "~2.0",
+		"nette/robot-loader": "~2.0",
+		"nette/safe-stream":"~2.0",
+		"nette/security": "~2.0",
+		"latte/latte": "~2.0",
+		"tracy/tracy": "~2.0",
+		"kdyby/translation": "~2.0",
 		"kdyby/redis": "~3.0",
 		"kdyby/doctrine": "~3.0",
-		"juniwalk/form": "dev-master",
-		"minetro/recaptcha": "~1.5",
+		"juniwalk/form": "~1.0",
+		"minetro/recaptcha": "~1.0",
 		"ramsey/uuid": "~3.0",
 		"ramsey/uuid-doctrine": "~1.0"
 	},
 
 	"minimum-stability": "dev",
-	"prefer-stable": true
+	"prefer-stable": false
 }
