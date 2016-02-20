@@ -23,6 +23,7 @@
 		"nette/security": "~2.0",
 		"latte/latte": "~2.0",
 		"tracy/tracy": "~2.0",
+
 		"kdyby/translation": "~2.0",
 		"kdyby/redis": "~3.0",
 		"kdyby/doctrine": "~3.0",
@@ -30,7 +31,9 @@
 		"minetro/recaptcha": "~1.0",
 		"janmarek/webloader": "dev-master",
 		"ramsey/uuid": "~3.0",
-		"ramsey/uuid-doctrine": "~1.0"
+		"ramsey/uuid-doctrine": "~1.0",
+
+		"paveljanda/happy": "dev-master"
 	},
 
 	"minimum-stability": "dev",

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "644d751a2a0e7ece431f4cbd37b47ee8",
-    "content-hash": "dd3483577f774f326474a8c63ce917c7",
+    "hash": "cee30d84e41c1ef1325fa950fc416ae6",
+    "content-hash": "b98cf4598dc4bb10f7b841f25ebd530c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -289,12 +289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "625dd63568e386e11c01022c22e50adc2a8a7af6"
+                "reference": "61e1f860a304c3fb6961ecbec36927b5f20b71c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/625dd63568e386e11c01022c22e50adc2a8a7af6",
-                "reference": "625dd63568e386e11c01022c22e50adc2a8a7af6",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/61e1f860a304c3fb6961ecbec36927b5f20b71c6",
+                "reference": "61e1f860a304c3fb6961ecbec36927b5f20b71c6",
                 "shasum": ""
             },
             "require": {
@@ -352,7 +352,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-01-23 14:29:18"
+            "time": "2016-02-19 14:48:59"
         },
         {
             "name": "doctrine/inflector",
@@ -535,12 +535,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "1fa71f15d9e1a59030257af8d5d2f2b02a429f4a"
+                "reference": "aef8f63dd027e61ef5fb41d337e51229f68cb371"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/1fa71f15d9e1a59030257af8d5d2f2b02a429f4a",
-                "reference": "1fa71f15d9e1a59030257af8d5d2f2b02a429f4a",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/aef8f63dd027e61ef5fb41d337e51229f68cb371",
+                "reference": "aef8f63dd027e61ef5fb41d337e51229f68cb371",
                 "shasum": ""
             },
             "require": {
@@ -606,7 +606,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-02-17 11:13:43"
+            "time": "2016-02-19 11:38:00"
         },
         {
             "name": "janmarek/webloader",
@@ -1356,12 +1356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "b6ffc8ce210d2cff3ccc41fc7489d51c5014c243"
+                "reference": "5d5520a78b279a9571698fe8f46a009abeaf16cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/b6ffc8ce210d2cff3ccc41fc7489d51c5014c243",
-                "reference": "b6ffc8ce210d2cff3ccc41fc7489d51c5014c243",
+                "url": "https://api.github.com/repos/nette/latte/zipball/5d5520a78b279a9571698fe8f46a009abeaf16cf",
+                "reference": "5d5520a78b279a9571698fe8f46a009abeaf16cf",
                 "shasum": ""
             },
             "require": {
@@ -1408,7 +1408,7 @@
                 "templating",
                 "twig"
             ],
-            "time": "2016-02-10 02:37:48"
+            "time": "2016-02-19 19:24:57"
         },
         {
             "name": "minetro/recaptcha",
@@ -2392,6 +2392,40 @@
             "time": "2016-02-08 13:27:36"
         },
         {
+            "name": "paveljanda/happy",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paveljanda/happy.git",
+                "reference": "a3b76d3b1a36c2b61e5e2eb394b849236f045e0b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paveljanda/happy/zipball/a3b76d3b1a36c2b61e5e2eb394b849236f045e0b",
+                "reference": "a3b76d3b1a36c2b61e5e2eb394b849236f045e0b",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Janda",
+                    "homepage": "http://paveljanda.com"
+                }
+            ],
+            "description": "Happy form inputs",
+            "homepage": "http://happy.paveljanda.com",
+            "keywords": [
+                "form",
+                "happy",
+                "input"
+            ],
+            "time": "2016-02-18 15:23:39"
+        },
+        {
             "name": "psr/log",
             "version": "dev-master",
             "source": {
@@ -2856,12 +2890,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "eee635050996abe063c34c6d07c12a42c766c9d2"
+                "reference": "5496aa4d5cad82c1b59170ff20b64e6f1e6bebb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/eee635050996abe063c34c6d07c12a42c766c9d2",
-                "reference": "eee635050996abe063c34c6d07c12a42c766c9d2",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/5496aa4d5cad82c1b59170ff20b64e6f1e6bebb3",
+                "reference": "5496aa4d5cad82c1b59170ff20b64e6f1e6bebb3",
                 "shasum": ""
             },
             "require": {
@@ -2908,14 +2942,15 @@
                 "debugger",
                 "nette"
             ],
-            "time": "2016-02-08 13:44:18"
+            "time": "2016-02-19 20:55:15"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "janmarek/webloader": 20
+        "janmarek/webloader": 20,
+        "paveljanda/happy": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

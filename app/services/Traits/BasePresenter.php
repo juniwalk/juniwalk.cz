@@ -21,7 +21,8 @@ trait BasePresenter
 
 	public function beforeRender()
 	{
-		$this->template->profile = $this->getUser()->getIdentity();
+		$this->getTemplate()->add('appDir', $this->getContext()->parameters['appDir']);
+		$this->getTemplate()->add('profile', $this->getUser()->getIdentity());
 		return parent::beforeRender();
 	}
 

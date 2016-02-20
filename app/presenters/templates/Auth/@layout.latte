@@ -1,4 +1,4 @@
-{layout '../../../@Admin/templates/@layout.latte'}
+{layout $appDir.'/@Admin/templates/@layout.latte'}
 {block body}
 <body class="gray-bg">
 
@@ -15,7 +15,7 @@
 	</div>
 
 	<!-- javascript -->
-	{block javascript|indent|trim}{control assets:js frontend}{/block}
+	{block javascript|indent|trim}{control assets:js backend}{/block}
 
 </body>
 {/block}

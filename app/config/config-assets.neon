@@ -14,22 +14,44 @@ webloader:
 		remoteFiles:
 			- https://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css
 			- https://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css
-			- https://cdn.rawgit.com/Betons/HappyComponents/master/src/assets/css/happy.min.css
 		files:
+			- %pkgDir%/paveljanda/happy/src/assets/css/happy.min.css
+			- %wwwDir%/css/animate.css
 		joinFiles: false
 		tempDir: %wwwDir%/static
 		tempPath: static
+
+	css:
+		frontend:
+			files:
+				- %wwwDir%/css/landing-page.css
+
+		backend:
+			files:
+				- %wwwDir%/css/style.css
+
 
 	jsDefaults:
 		remoteFiles:
 			- https://code.jquery.com/jquery-2.2.0.min.js
 			- https://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js
-			- https://cdn.rawgit.com/Betons/HappyComponents/master/src/assets/js/happy.min.js
 		files:
+			- %pkgDir%/paveljanda/happy/src/assets/js/happy.min.js
 			- %pkgDir%/nette/forms/src/assets/netteForms.js
+			- %wwwDir%/js/plugins/slimscroll/jquery.slimscroll.min.js
+			- %wwwDir%/js/plugins/metisMenu/jquery.metisMenu.js
+			- %wwwDir%/js/plugins/pace/pace.min.js
+			- %wwwDir%/js/inspinia.js
 		joinFiles: false
 		tempDir: %wwwDir%/static
 		tempPath: static
 
-	css: {frontend: [], backend: []}
-	js: {frontend: [], backend: []}
+	js:
+		frontend:
+			files:
+				- %wwwDir%/js/classie.js
+				- %wwwDir%/js/cbpAnimatedHeader.js
+				- %wwwDir%/js/wow.min.js
+
+		backend:
+			files: []
