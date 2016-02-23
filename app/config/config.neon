@@ -12,6 +12,7 @@ php:
 
 tracy:
 	strictMode: true
+	showBar: false
 	maxDepth: 8
 	maxLen: 750
 

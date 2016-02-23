@@ -16,6 +16,7 @@ var cbpAnimatedHeader = (function() {
         changeHeaderOn = 200;
 
     function init() {
+    	scrollPage();
         window.addEventListener( 'scroll', function( event ) {
             if( !didScroll ) {
                 didScroll = true;
@@ -27,10 +28,10 @@ var cbpAnimatedHeader = (function() {
     function scrollPage() {
         var sy = scrollY();
         if ( sy >= changeHeaderOn ) {
-            classie.add( header, 'navbar-scroll' );
+            $(header).addClass('navbar-scroll');
         }
         else {
-            classie.remove( header, 'navbar-scroll' );
+            $(header).removeClass('navbar-scroll');
         }
         didScroll = false;
     }

@@ -171,7 +171,7 @@ $(document).ready(function () {
         .popover();
 
     // Add slimscroll to element
-    $('.full-height-scroll').slimscroll({
+    $('.full-height-scroll').slimScroll({
         height: '100%'
     })
 });
