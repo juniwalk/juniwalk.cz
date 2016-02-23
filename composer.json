@@ -33,6 +33,11 @@
 		"ramsey/uuid-doctrine": "^1.0"
 	},
 
+	"scripts": {
+        "post-install-cmd": "bower install",
+		"post-update-cmd": "bower update"
+	},
+
 	"minimum-stability": "dev",
 	"prefer-stable": false
 }
