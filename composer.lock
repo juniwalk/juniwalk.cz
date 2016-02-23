@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cee30d84e41c1ef1325fa950fc416ae6",
-    "content-hash": "b98cf4598dc4bb10f7b841f25ebd530c",
+    "hash": "6a8b3275a49cc539888627a1fb06bb01",
+    "content-hash": "41ac64f37b0264a78f958f9f4681ed94",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -535,12 +535,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "aef8f63dd027e61ef5fb41d337e51229f68cb371"
+                "reference": "6ed05a967014cbc00f916d4cf7f11ce9548d8c4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/aef8f63dd027e61ef5fb41d337e51229f68cb371",
-                "reference": "aef8f63dd027e61ef5fb41d337e51229f68cb371",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/6ed05a967014cbc00f916d4cf7f11ce9548d8c4f",
+                "reference": "6ed05a967014cbc00f916d4cf7f11ce9548d8c4f",
                 "shasum": ""
             },
             "require": {
@@ -606,7 +606,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-02-19 11:38:00"
+            "time": "2016-02-21 13:44:07"
         },
         {
             "name": "janmarek/webloader",
@@ -693,6 +693,55 @@
                 "webloader"
             ],
             "time": "2016-02-07 12:53:42"
+        },
+        {
+            "name": "joseki/webloader-filters",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Joseki/WebloaderFilters.git",
+                "reference": "9598aab9efcbb762c6410c706c97578db5c2cd75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Joseki/WebloaderFilters/zipball/9598aab9efcbb762c6410c706c97578db5c2cd75",
+                "reference": "9598aab9efcbb762c6410c706c97578db5c2cd75",
+                "shasum": ""
+            },
+            "require": {
+                "natxet/cssmin": "~3.0",
+                "php": ">= 5.3.0",
+                "tedivm/jshrink": "~1.0"
+            },
+            "require-dev": {
+                "janmarek/webloader": "~2.5",
+                "mockery/mockery": "dev-master",
+                "nette/bootstrap": "~2.2",
+                "nette/robot-loader": "~2.2",
+                "nette/tester": "~1.0",
+                "tracy/tracy": "~2.2"
+            },
+            "suggest": {
+                "janmarek/webloader": "Tool for loading or deploying CSS and JS files into web pages."
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Miroslav Paulík",
+                    "email": "miras.paulik@seznam.cz"
+                }
+            ],
+            "description": "This is an extension of janmarek/webloader. This extension contains filters to minify js and css.",
+            "time": "2015-10-11 23:02:22"
         },
         {
             "name": "juniwalk/form",
@@ -1356,12 +1405,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "5d5520a78b279a9571698fe8f46a009abeaf16cf"
+                "reference": "8645679463dacf180b85925835c8df8d8bd7cf69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/5d5520a78b279a9571698fe8f46a009abeaf16cf",
-                "reference": "5d5520a78b279a9571698fe8f46a009abeaf16cf",
+                "url": "https://api.github.com/repos/nette/latte/zipball/8645679463dacf180b85925835c8df8d8bd7cf69",
+                "reference": "8645679463dacf180b85925835c8df8d8bd7cf69",
                 "shasum": ""
             },
             "require": {
@@ -1408,7 +1457,7 @@
                 "templating",
                 "twig"
             ],
-            "time": "2016-02-19 19:24:57"
+            "time": "2016-02-20 20:22:35"
         },
         {
             "name": "minetro/recaptcha",
@@ -1457,17 +1506,64 @@
             "time": "2015-12-30 15:18:17"
         },
         {
+            "name": "natxet/CssMin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/natxet/CssMin.git",
+                "reference": "0b2170454eed9024c7e26b036fbccf2d7f6f2c53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/natxet/CssMin/zipball/0b2170454eed9024c7e26b036fbccf2d7f6f2c53",
+                "reference": "0b2170454eed9024c7e26b036fbccf2d7f6f2c53",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joe Scylla",
+                    "email": "joe.scylla@gmail.com",
+                    "homepage": "https://profiles.google.com/joe.scylla"
+                }
+            ],
+            "description": "Minifying CSS",
+            "homepage": "http://code.google.com/p/cssmin/",
+            "keywords": [
+                "css",
+                "minify"
+            ],
+            "time": "2015-10-13 07:27:08"
+        },
+        {
             "name": "nette/application",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/application.git",
-                "reference": "a756b711ec741b6db58c8590a6251b9c78c9fffa"
+                "reference": "2bbd9815b85080c75b0ebf4ad5376e9533baaf82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/application/zipball/a756b711ec741b6db58c8590a6251b9c78c9fffa",
-                "reference": "a756b711ec741b6db58c8590a6251b9c78c9fffa",
+                "url": "https://api.github.com/repos/nette/application/zipball/2bbd9815b85080c75b0ebf4ad5376e9533baaf82",
+                "reference": "2bbd9815b85080c75b0ebf4ad5376e9533baaf82",
                 "shasum": ""
             },
             "require": {
@@ -1521,7 +1617,7 @@
             ],
             "description": "Nette Application MVC Component",
             "homepage": "https://nette.org",
-            "time": "2016-02-09 10:43:28"
+            "time": "2016-02-23 13:18:13"
         },
         {
             "name": "nette/bootstrap",
@@ -1600,12 +1696,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/caching.git",
-                "reference": "bee3e978caaac9027012fd5e14c866b23400292e"
+                "reference": "9bcb68939f4387a89dc7be0fb5dcaae98b87976b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/caching/zipball/bee3e978caaac9027012fd5e14c866b23400292e",
-                "reference": "bee3e978caaac9027012fd5e14c866b23400292e",
+                "url": "https://api.github.com/repos/nette/caching/zipball/9bcb68939f4387a89dc7be0fb5dcaae98b87976b",
+                "reference": "9bcb68939f4387a89dc7be0fb5dcaae98b87976b",
                 "shasum": ""
             },
             "require": {
@@ -1650,7 +1746,7 @@
             ],
             "description": "Nette Caching Component",
             "homepage": "https://nette.org",
-            "time": "2016-02-06 22:08:59"
+            "time": "2016-02-22 01:58:50"
         },
         {
             "name": "nette/component-model",
@@ -1713,12 +1809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/di.git",
-                "reference": "6f74e81a79943b9a26e26a1759befc4e2e64f6f6"
+                "reference": "312b86f7ec64c96afee3f0c1a57aa409b6637c07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/di/zipball/6f74e81a79943b9a26e26a1759befc4e2e64f6f6",
-                "reference": "6f74e81a79943b9a26e26a1759befc4e2e64f6f6",
+                "url": "https://api.github.com/repos/nette/di/zipball/312b86f7ec64c96afee3f0c1a57aa409b6637c07",
+                "reference": "312b86f7ec64c96afee3f0c1a57aa409b6637c07",
                 "shasum": ""
             },
             "require": {
@@ -1762,7 +1858,7 @@
             ],
             "description": "Nette Dependency Injection Component",
             "homepage": "https://nette.org",
-            "time": "2016-02-10 02:42:25"
+            "time": "2016-02-23 13:15:03"
         },
         {
             "name": "nette/finder",
@@ -2221,60 +2317,6 @@
             "time": "2016-02-06 22:05:37"
         },
         {
-            "name": "nette/safe-stream",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nette/safe-stream.git",
-                "reference": "7edc9a2529afb8f72d6c2fc863526bba93500a53"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nette/safe-stream/zipball/7edc9a2529afb8f72d6c2fc863526bba93500a53",
-                "reference": "7edc9a2529afb8f72d6c2fc863526bba93500a53",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.1"
-            },
-            "conflict": {
-                "nette/nette": "<2.2"
-            },
-            "require-dev": {
-                "nette/tester": "~1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/loader.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause",
-                "GPL-2.0",
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "David Grudl",
-                    "homepage": "https://davidgrudl.com"
-                },
-                {
-                    "name": "Nette Community",
-                    "homepage": "https://nette.org/contributors"
-                }
-            ],
-            "description": "Nette SafeStream: Atomic Operations",
-            "homepage": "https://nette.org",
-            "time": "2016-02-06 22:05:37"
-        },
-        {
             "name": "nette/security",
             "version": "dev-master",
             "source": {
@@ -2337,12 +2379,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/utils.git",
-                "reference": "26c7fe3546cc1a090f74853a3ae751afb373f9bf"
+                "reference": "7fe068d0eb99d4f76e7053b9613b07aeedf7146f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/utils/zipball/26c7fe3546cc1a090f74853a3ae751afb373f9bf",
-                "reference": "26c7fe3546cc1a090f74853a3ae751afb373f9bf",
+                "url": "https://api.github.com/repos/nette/utils/zipball/7fe068d0eb99d4f76e7053b9613b07aeedf7146f",
+                "reference": "7fe068d0eb99d4f76e7053b9613b07aeedf7146f",
                 "shasum": ""
             },
             "require": {
@@ -2389,41 +2431,7 @@
             ],
             "description": "Nette Utility Classes",
             "homepage": "https://nette.org",
-            "time": "2016-02-08 13:27:36"
-        },
-        {
-            "name": "paveljanda/happy",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/paveljanda/happy.git",
-                "reference": "a3b76d3b1a36c2b61e5e2eb394b849236f045e0b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/paveljanda/happy/zipball/a3b76d3b1a36c2b61e5e2eb394b849236f045e0b",
-                "reference": "a3b76d3b1a36c2b61e5e2eb394b849236f045e0b",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pavel Janda",
-                    "homepage": "http://paveljanda.com"
-                }
-            ],
-            "description": "Happy form inputs",
-            "homepage": "http://happy.paveljanda.com",
-            "keywords": [
-                "form",
-                "happy",
-                "input"
-            ],
-            "time": "2016-02-18 15:23:39"
+            "time": "2016-02-23 12:59:57"
         },
         {
             "name": "psr/log",
@@ -2605,12 +2613,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "8a2ae1c89e72d080f357567fa5ab1e7ba8e5c0f1"
+                "reference": "7895bf195c2ce26ff907114791d9a2be5f21179f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/8a2ae1c89e72d080f357567fa5ab1e7ba8e5c0f1",
-                "reference": "8a2ae1c89e72d080f357567fa5ab1e7ba8e5c0f1",
+                "url": "https://api.github.com/repos/symfony/config/zipball/7895bf195c2ce26ff907114791d9a2be5f21179f",
+                "reference": "7895bf195c2ce26ff907114791d9a2be5f21179f",
                 "shasum": ""
             },
             "require": {
@@ -2650,7 +2658,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-18 08:58:48"
+            "time": "2016-02-22 16:12:45"
         },
         {
             "name": "symfony/console",
@@ -2658,12 +2666,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "02930f823b232f4a6d7371464240896cca28560a"
+                "reference": "fa1df6d8b7dea4a86b5297ba68fbbbb67343d2cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/02930f823b232f4a6d7371464240896cca28560a",
-                "reference": "02930f823b232f4a6d7371464240896cca28560a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/fa1df6d8b7dea4a86b5297ba68fbbbb67343d2cc",
+                "reference": "fa1df6d8b7dea4a86b5297ba68fbbbb67343d2cc",
                 "shasum": ""
             },
             "require": {
@@ -2710,7 +2718,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-17 06:14:28"
+            "time": "2016-02-22 15:02:30"
         },
         {
             "name": "symfony/filesystem",
@@ -2885,17 +2893,63 @@
             "time": "2016-02-02 09:49:18"
         },
         {
+            "name": "tedivm/jshrink",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tedious/JShrink.git",
+                "reference": "688527a2e854d7935f24f24c7d5eb1b604742bf9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tedious/JShrink/zipball/688527a2e854d7935f24f24c7d5eb1b604742bf9",
+                "reference": "688527a2e854d7935f24f24c7d5eb1b604742bf9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "0.4.0",
+                "phpunit/phpunit": "4.0.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "JShrink": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Hafner",
+                    "email": "tedivm@tedivm.com"
+                }
+            ],
+            "description": "Javascript Minifier built in PHP",
+            "homepage": "http://github.com/tedious/JShrink",
+            "keywords": [
+                "javascript",
+                "minifier"
+            ],
+            "time": "2015-07-04 07:35:09"
+        },
+        {
             "name": "tracy/tracy",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tracy.git",
-                "reference": "5496aa4d5cad82c1b59170ff20b64e6f1e6bebb3"
+                "reference": "e33673dfce78ffc3319ddc3f634ce52370a59211"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tracy/zipball/5496aa4d5cad82c1b59170ff20b64e6f1e6bebb3",
-                "reference": "5496aa4d5cad82c1b59170ff20b64e6f1e6bebb3",
+                "url": "https://api.github.com/repos/nette/tracy/zipball/e33673dfce78ffc3319ddc3f634ce52370a59211",
+                "reference": "e33673dfce78ffc3319ddc3f634ce52370a59211",
                 "shasum": ""
             },
             "require": {
@@ -2942,15 +2996,14 @@
                 "debugger",
                 "nette"
             ],
-            "time": "2016-02-19 20:55:15"
+            "time": "2016-02-23 13:16:09"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "janmarek/webloader": 20,
-        "paveljanda/happy": 20
+        "janmarek/webloader": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
