@@ -1,6 +1,7 @@
 {
 	"name": "juniwalk/juniwalk.cz",
 	"description": "Repository of the juniwalk.cz website.",
+	"homepage": "https://www.juniwalk.cz",
 	"type": "project",
 	"license": "MIT",
 
@@ -31,11 +32,6 @@
 		"joseki/webloader-filters": "^1.0",
 		"ramsey/uuid": "^3.0",
 		"ramsey/uuid-doctrine": "^1.0"
-	},
-
-	"scripts": {
-        "post-install-cmd": "bower install",
-		"post-update-cmd": "bower update"
 	},
 
 	"minimum-stability": "dev",
