@@ -21,6 +21,7 @@ webloader:
 		files:
 			- %wwwDir%/assets/font-awesome/css/font-awesome.min.css
 			- %wwwDir%/assets/bootstrap/dist/css/bootstrap.min.css
+			- %wwwDir%/assets/nittro/dist/css/nittro.full.min.css
 			- %wwwDir%/assets/happy/dist/happy.min.css
 			- %wwwDir%/assets/animate.css/animate.min.css
 		joinFiles: false
@@ -44,10 +45,9 @@ webloader:
 		files:
 			- %wwwDir%/assets/pace/pace.min.js
 			- %wwwDir%/assets/jquery/dist/jquery.min.js
+			- %wwwDir%/assets/nittro/dist/js/nittro.full.min.js
 			- %wwwDir%/assets/jquery-slimscroll/jquery.slimscroll.min.js
 			- %wwwDir%/assets/bootstrap/dist/js/bootstrap.min.js
-			- %wwwDir%/assets/nette-forms/src/assets/netteForms.js
-			- %wwwDir%/assets/nette.ajax.js/nette.ajax.js
 			- %wwwDir%/assets/happy/dist/happy.min.js
 			- %wwwDir%/assets/metisMenu/dist/metisMenu.min.js
 			- %wwwDir%/js/inspinia.js

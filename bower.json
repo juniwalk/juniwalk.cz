@@ -1,22 +1,21 @@
 {
-    "name": "juniwalk.cz",
-    "private": true,
+	"name": "juniwalk.cz",
+	"private": true,
 
-    "authors": [
-        "Martin Procházka <juniwalk@outlook.cz>"
-    ],
+	"authors": [
+		"Martin Procházka <juniwalk@outlook.cz>"
+	],
 
-    "dependencies": {
-        "font-awesome": "*",
-        "jquery": "^2.0",
-        "jquery-slimscroll": "^1.0",
-        "bootstrap": "^3.0",
-        "animate.css": "^3.0",
-        "wow": "^1.0",
-        "pace": "^0.7",
-        "metisMenu": "^2.0",
-        "nette.ajax.js": "^1.0",
-		"nette-forms": "^2.0",
-        "happy": "^1.0"
-    }
+	"dependencies": {
+		"font-awesome": "*",
+		"jquery": "^2.0",
+		"jquery-slimscroll": "^1.0",
+		"bootstrap": "^3.0",
+		"animate.css": "^3.0",
+		"wow": "^1.0",
+		"pace": "^0.7",
+		"metisMenu": "^2.0",
+		"happy": "^1.0",
+		"nittro": "^1.0"
+	}
 }

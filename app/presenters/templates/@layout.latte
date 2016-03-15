@@ -14,7 +14,7 @@
 	<link type="image/x-icon" href="{$basePath}/favicon.ico" rel="shortcut icon">
 
 	<!-- title -->
-	<title>JUNI WALK{ifset title} | {include title|striptags}{/ifset}</title>
+	<title n:snippet="title">{ifset title}{include title|striptags} | {/ifset}JUNI WALK</title>
 
 	<!-- stylesheet -->
 	{block stylesheet|indent|trim}{control assets:css frontend}{/block}
@@ -32,17 +32,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" n:href="Home:">JUNI WALK</a>
+					<a class="navbar-brand" n:href="Home:default">JUNI WALK</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a class="page-scroll" n:href="Home:">Home</a></li>
-						<li><a class="page-scroll" href="#features">Features</a></li>
-						<li><a class="page-scroll" href="#team">Team</a></li>
-						<li><a class="page-scroll" href="#testimonials">Testimonials</a></li>
-						<li><a class="page-scroll" href="#pricing">Pricing</a></li>
-						<li><a class="page-scroll" href="#contact">Contact</a></li>
-						<li><a class="page-scroll" n:href=":Admin:Home:"><i class="fa fa-cog"></i></a></li>
+						<li><a class="page-scroll" n:href="Home:default">Home</a></li>
+						<li><a class="page-scroll" n:href="Home:next">Next</a></li>
+						<li><a class="page-scroll noajax" n:href=":Admin:Home:"><i class="fa fa-cog"></i></a></li>
 						<li><a class="page-scroll" n:href=":Auth:signOut"><i class="fa fa-power-off"></i></a></li>
 					</ul>
 				</div>
@@ -50,7 +46,11 @@
 		</nav>
 	</div>
 
-	{include content}
+	<div class="transition-auto transition-slide" n:snippet="content">
+
+		{include content}
+
+	</div>
 
 	<!-- javascript -->
 	{block javascript|indent|trim}{control assets:js frontend}{/block}

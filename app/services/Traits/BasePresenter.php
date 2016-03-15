@@ -19,11 +19,14 @@ trait BasePresenter
 	public $translator;
 
 
-	public function beforeRender()
+	/**
+	 * @param string  $path
+	 * @param array   $params
+	 */
+	public function redirectAjax(string $path, array $params = [])
 	{
-		$this->getTemplate()->add('appDir', $this->getContext()->parameters['appDir']);
-		$this->getTemplate()->add('profile', $this->getUser()->getIdentity());
-		return parent::beforeRender();
+		$this->payload->postGet = TRUE;
+		$this->payload->url = $this->link($path, $params);
 	}
 
 
@@ -33,6 +36,32 @@ trait BasePresenter
 	public function getTranslator()
 	{
 		return $this->translator;
+	}
+
+
+	public function sendPayload()
+	{
+		if ($this->hasFlashSession()) {
+			$flashes = $this->getFlashSession();
+			$this->payload->flashes = iterator_to_array($flashes->getIterator());
+			$flashes->remove();
+		}
+
+		parent::sendPayload();
+	}
+
+
+	protected function beforeRender()
+	{
+		$this->getTemplate()->add('appDir', $this->getContext()->parameters['appDir']);
+		$this->getTemplate()->add('profile', $this->getUser()->getIdentity());
+	}
+
+
+	protected function afterRender()
+	{
+		$this->redrawControl('content');
+		$this->redrawControl('title');
 	}
 
 

@@ -22,21 +22,15 @@ final class AuthPresenter extends \Nette\Application\UI\Presenter
 	public $signUpForm;
 
 
-	/**
-	 * Action - Default action for authentication.
-	 */
 	public function actionDefault()
 	{
-		$this->redirect('signIn');
+		$this->redirectAjax('signIn');
 	}
 
 
-	/**
-	 * Action - Sign out from the application.
-	 */
 	public function actionSignOut()
 	{
-		$this->user->logout(true);
+		$this->user->logout(TRUE);
 		$this->redirect('signIn');
 	}
 
@@ -48,7 +42,7 @@ final class AuthPresenter extends \Nette\Application\UI\Presenter
 	protected function createComponentSignInForm(string $name)
 	{
 		$form = $this->signInForm->create();
-		$form->onSuccess[] = function($form, $data) {
+		$form->onSuccess[] = function ($form, $data) {
 			$this->redirect('Home:');
 		};
 
@@ -63,7 +57,7 @@ final class AuthPresenter extends \Nette\Application\UI\Presenter
 	protected function createComponentSignUpForm(string $name)
 	{
 		$form = $this->signUpForm->create();
-		$form->onSuccess[] = function($form, $data) {
+		$form->onSuccess[] = function ($form, $data) {
 			$this->redirect('Home:');
 		};
 
