@@ -17,7 +17,7 @@
 	<title n:snippet="title">{ifset title}{include title|striptags} | {/ifset}JUNI WALK</title>
 
 	<!-- stylesheet -->
-	{block stylesheet|indent|trim}{control assets:css backend}{/block}
+	{control assets:css backend |indent|trim}
 
 </head>
 <body n:block="body">
@@ -80,7 +80,7 @@
 </div>
 
 	<!-- javascript -->
-	{block javascript|indent|trim}{control assets:js backend}{/block}
+	{control assets:js backend |indent|trim}
 
 </body>
 </html>

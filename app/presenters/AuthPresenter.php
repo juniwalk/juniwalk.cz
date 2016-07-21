@@ -10,11 +10,8 @@
 
 namespace App\Presenters;
 
-final class AuthPresenter extends \Nette\Application\UI\Presenter
+final class AuthPresenter extends BasePresenter
 {
-	use \App\Services\Traits\BasePresenter;
-
-
 	/** @var \App\Forms\ISignInFormFactory @inject */
 	public $signInForm;
 
@@ -24,14 +21,14 @@ final class AuthPresenter extends \Nette\Application\UI\Presenter
 
 	public function actionDefault()
 	{
-		$this->redirectAjax('signIn');
+		$this->postGet('signIn');
 	}
 
 
 	public function actionSignOut()
 	{
 		$this->user->logout(TRUE);
-		$this->redirect('signIn');
+		$this->postGet('signIn');
 	}
 
 
@@ -43,7 +40,7 @@ final class AuthPresenter extends \Nette\Application\UI\Presenter
 	{
 		$form = $this->signInForm->create();
 		$form->onSuccess[] = function ($form, $data) {
-			$this->redirect('Home:');
+			$this->postGet('Home:');
 		};
 
 		return $form;
@@ -58,7 +55,7 @@ final class AuthPresenter extends \Nette\Application\UI\Presenter
 	{
 		$form = $this->signUpForm->create();
 		$form->onSuccess[] = function ($form, $data) {
-			$this->redirect('Home:');
+			$this->postGet('Home:');
 		};
 
 		return $form;

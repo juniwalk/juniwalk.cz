@@ -14,10 +14,14 @@
 	<link type="image/x-icon" href="{$basePath}/favicon.ico" rel="shortcut icon">
 
 	<!-- title -->
-	<title n:snippet="title">{ifset title}{include title|striptags} | {/ifset}JUNI WALK</title>
+	<title n:snippet="title">{ifset title}{include title|stripHtml} | {/ifset}JUNI WALK</title>
 
 	<!-- stylesheet -->
-	{block stylesheet|indent|trim}{control assets:css frontend}{/block}
+	{control assets:css frontend |indent|trim}
+	<style type="text/css">
+		.no-margin { margin: 0px; }
+		.no-padding { padding: 0px; }
+	</style>
 
 </head>
 <body n:block="body">
@@ -46,14 +50,14 @@
 		</nav>
 	</div>
 
-	<div class="transition-auto transition-slide" n:snippet="content">
+	<div n:snippet="content" class="transition-auto transition-slide">
 
 		{include content}
 
 	</div>
 
 	<!-- javascript -->
-	{block javascript|indent|trim}{control assets:js frontend}{/block}
+    {control assets:js frontend |indent|trim}
 
 </body>
 </html>

@@ -17,16 +17,18 @@
 		"nette/caching": "^2.0",
 		"nette/di": "^2.0",
 		"nette/http": "^2.0",
-		"nette/mail": "^2.0",
 		"nette/robot-loader": "^2.0",
+		"nette/mail": "^2.0",
 		"nette/security": "^2.0",
 		"latte/latte": "^2.0",
 		"tracy/tracy": "^2.0",
 
+		"nittro/nette-bridges": "^1.0",
 		"kdyby/translation": "^2.0",
 		"kdyby/redis": "^3.0",
 		"kdyby/doctrine": "^3.0",
 		"juniwalk/form": "^1.0",
+		"juniwalk/ubergrid": "*",
 		"minetro/recaptcha": "^1.0",
 		"janmarek/webloader": "dev-master",
 		"joseki/webloader-filters": "^1.0",
@@ -35,5 +37,5 @@
 	},
 
 	"minimum-stability": "dev",
-	"prefer-stable": false
+	"prefer-stable": true
 }

@@ -10,7 +10,17 @@
 
 namespace App\Presenters;
 
-final class HomePresenter extends \Nette\Application\UI\Presenter
+final class HomePresenter extends BasePresenter
 {
-	use \App\Services\Traits\BasePresenter;
+	/** @var \JuniWalk\Ubergrid\IGridFactory @inject */
+	public $ubergrid;
+
+
+	/**
+	 * @param string  $name
+	 */
+	protected function createComponentUbergrid(string $name)
+	{
+		return $this->ubergrid->create();
+	}
 }

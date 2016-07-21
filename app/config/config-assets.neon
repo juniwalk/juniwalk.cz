@@ -5,7 +5,7 @@ extensions:
 	webloader: WebLoader\Nette\Extension
 
 services:
-	- App\Controls\IAssetsFactory
+	- App\Services\IAssetsFactory
 
 	# Filters
 	cssUrl: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
@@ -51,6 +51,7 @@ webloader:
 			- %wwwDir%/assets/happy/dist/happy.min.js
 			- %wwwDir%/assets/metisMenu/dist/metisMenu.min.js
 			- %wwwDir%/js/inspinia.js
+			- %wwwDir%/js/script.js
 		joinFiles: false
 		fileFilters: [@jsMin]
 		tempDir: %wwwDir%/static

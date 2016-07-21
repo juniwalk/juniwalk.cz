@@ -4,15 +4,14 @@
 includes:
 	- config-params.neon
 	- config-assets.neon
-	- config-forms.neon
 
 
 php:
 	date.timezone: %timezone%
 
 tracy:
-	strictMode: true
-	#showBar: false
+	strictMode: FALSE
+	showBar: TRUE
 	maxDepth: 8
 	maxLen: 750
 
@@ -27,7 +26,7 @@ application:
 		*: App\*Module\Presenters\*Presenter
 
 mail:
-	smtp: true
+	smtp: TRUE
 	host: %smtp.host%
 	username: %smtp.username%
 	password: %smtp.password%
@@ -36,11 +35,14 @@ mail:
 services:
 	router: App\Services\RouterFactory::createRouter
 	authenticator: App\Services\Authenticator
+	- JuniWalk\Ubergrid\IGridFactory
 
 	# Doctrine repositories
 	- App\Entity\UserRepository
 
 extensions:
+	recaptcha: Minetro\Forms\reCAPTCHA\ReCaptchaExtension
+	form: JuniWalk\Form\DI\FormExtension
 	- App\Services\DI\UuidDoctrineExtension
 
 	# Kdyby components
@@ -49,8 +51,18 @@ extensions:
 	events: Kdyby\Events\DI\EventsExtension
 	annotations: Kdyby\Annotations\DI\AnnotationsExtension
 	doctrine: Kdyby\Doctrine\DI\OrmExtension
-	redis: Kdyby\Redis\DI\RedisExtension
+	#redis: Kdyby\Redis\DI\RedisExtension
 
+
+# Minetro \ reCAPTCHA
+recaptcha:
+	secretKey: %captcha.secret%
+	siteKey: %captcha.site%
+
+# JuniWalk \ Forms
+form:
+	- App\Forms\ISignUpFormFactory
+	- App\Forms\ISignInFormFactory
 
 # Kdyby \ Translation
 translation:
@@ -59,10 +71,10 @@ translation:
 	dirs: [%appDir%/locale]
 
 # Kdyby \ Redis
-redis:
-	journal: on
-	storage: on
-	session: {database: 1, native: off}
+#redis:
+#	journal: on
+#	storage: on
+#	session: {database: 1, native: off}
 
 # Kdyby \ Doctrine
 doctrine:

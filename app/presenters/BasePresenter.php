@@ -8,26 +8,15 @@
  * @license   MIT License
  */
 
-namespace App\Services\Traits;
+namespace App\Presenters;
 
-trait BasePresenter
+abstract class BasePresenter extends \Nittro\Bridges\NittroUI\Presenter
 {
-	/** @var \App\Controls\IAssetsFactory @inject */
+	/** @var \App\Services\IAssetsFactory @inject */
 	public $assets;
 
 	/** @var \Nette\Localization\ITranslator @inject */
 	public $translator;
-
-
-	/**
-	 * @param string  $path
-	 * @param array   $params
-	 */
-	public function redirectAjax(string $path, array $params = [])
-	{
-		$this->payload->postGet = TRUE;
-		$this->payload->url = $this->link($path, $params);
-	}
 
 
 	/**
@@ -39,15 +28,10 @@ trait BasePresenter
 	}
 
 
-	public function sendPayload()
+	protected function startup()
 	{
-		if ($this->hasFlashSession()) {
-			$flashes = $this->getFlashSession();
-			$this->payload->flashes = iterator_to_array($flashes->getIterator());
-			$flashes->remove();
-		}
-
-		parent::sendPayload();
+		$this->setDefaultSnippets(['content', 'title']);
+		parent::startup();
 	}
 
 
@@ -58,15 +42,8 @@ trait BasePresenter
 	}
 
 
-	protected function afterRender()
-	{
-		$this->redrawControl('content');
-		$this->redrawControl('title');
-	}
-
-
 	/**
-	 * @return App\Controls\Assets
+	 * @return App\Services\Assets
 	 */
 	protected function createComponentAssets()
 	{

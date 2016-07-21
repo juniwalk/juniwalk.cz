@@ -8,14 +8,10 @@
  * @license   MIT License
  */
 
-namespace App\Controls;
+namespace App\Services;
 
 use WebLoader\Nette\LoaderFactory;
 
-/**
- * @usage {control assets:css frontend}
- *			{control assets:js backend}
- */
 final class Assets extends \Nette\Application\UI\Control
 {
 	/** @var LoaderFactory */
@@ -37,13 +33,7 @@ final class Assets extends \Nette\Application\UI\Control
 	 */
 	public function renderCss($module = 'default')
 	{
-		try {
-			$control = $this->factory->createCssLoader($module);
-
-		} catch (\Exception $e) {
-			// ERROR
-		}
-
+		$control = $this->factory->createCssLoader($module);
 		return $control->render();
 	}
 
@@ -54,13 +44,7 @@ final class Assets extends \Nette\Application\UI\Control
 	 */
 	public function renderJs($module = 'default')
 	{
-		try {
-			$control = $this->factory->createJavaScriptLoader($module);
-
-		} catch (\Exception $e) {
-			// ERROR
-		}
-
+		$control = $this->factory->createJavaScriptLoader($module);
 		return $control->render();
 	}
 }
