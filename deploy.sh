@@ -16,7 +16,7 @@ echo -e "#                                                        #"
 echo -e "##########################################################"
 echo -e "${RESET}"
 
-git pull
+git pull --ff-only --no-stat
 echo -e ""
 
 composer install --no-interaction --prefer-source
