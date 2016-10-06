@@ -28,8 +28,8 @@
 		"kdyby/redis": "dev-master",
 		"kdyby/doctrine": "^3.0",
 		"juniwalk/form": "^1.0",
-		"juniwalk/image-storage": "*",
-		"juniwalk/ubergrid": "*",
+		"juniwalk/image-storage": "dev-master",
+		"juniwalk/ubergrid": "dev-master",
 		"minetro/recaptcha": "^1.0",
 		"janmarek/webloader": "dev-master",
 		"joseki/webloader-filters": "^1.0",
@@ -38,7 +38,6 @@
 	},
 
 	"repositories": [
-		{"type": "path", "url": "/opt/git/image-storage"},
 		{"type": "vcs", "url": "https://github.com/juniwalk/WebLoader"},
 		{"type": "vcs", "url": "https://github.com/xdobro4/Redis"}
 	],

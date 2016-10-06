@@ -52,13 +52,13 @@ class User implements \Nette\Security\IIdentity
 	private $password;
 
 	/**
-	 * @ORM\Column(type="datetime")
+	 * @ORM\Column(type="datetimetz")
 	 * @var \DateTime
 	 */
 	private $signUp = 'NOW';
 
 	/**
-	 * @ORM\Column(type="datetime", nullable=true)
+	 * @ORM\Column(type="datetimetz", nullable=true)
 	 * @var \DateTime
 	 */
 	private $signIn;

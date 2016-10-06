@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Color declaration
+# Prepare enviroment
 COLOR='\033[0;34m'
 RESET='\033[0m'
 
-# Stop on errors
+clear
 set -e
 
 
@@ -28,29 +28,45 @@ bower update --allow-root
 echo -e "${COLOR}"
 echo -e "##########################################################"
 echo -e "#                                                        #"
-echo -e "#        Checking if the database is up to date.         #"
+echo -e "#      Updating database schema of the application.      #"
 echo -e "#                                                        #"
 echo -e "##########################################################"
 echo -e "${RESET}"
 
-php www/index.php orm:schema-tool:update --dump-sql
+# Cache clean up to prevent some issues
+rm -rf temp/proxies/*
+rm -rf temp/cache/*
 
-echo -e "\nDo you wish to forcibly update database schema?"
 
-select term in "Yes" "No"; do
+SCHEMA_UPDATE=$(php www/index.php orm:schema-tool:update --dump-sql)
+SCHEMA_REGEX="^Nothing to update"
 
-	if [ $term = "No" ]; then
+if [[ ! $SCHEMA_UPDATE =~ $SCHEMA_REGEX ]]; then
+
+	php www/index.php orm:schema-tool:update --dump-sql
+
+	echo -e "\nDo you wish to execute above queries to update database schema?"
+
+	select term in "Yes" "No"; do
+
+		if [ $term = "No" ]; then
+			break
+		fi
+
+		php www/index.php orm:schema-tool:update --force > /dev/null
+		echo -e "\nDatabase schema has been updated.\n"
+
 		break
-	fi
 
-	php www/index.php orm:schema-tool:update --force > /dev/null
-	echo -e "\nDatabase schema has been updated."
+	done
 
-	break
+else
 
-done
+	echo -e "Already up-to-date.\n"
 
-echo -e ""
+fi
+
+
 php www/index.php orm:generate-proxies
 
 
@@ -63,7 +79,16 @@ echo -e "##########################################################"
 echo -e "${RESET}"
 
 rm -rf temp/cache/*
-darwin fix --no-interaction
+
+
+which darwin &> /dev/null
+
+if [ $? -eq 0 ]; then
+
+	darwin fix --no-interaction
+
+fi
+
 
 echo -e "\nWould you also like to clear out user sessions?"
 
