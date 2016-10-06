@@ -25,9 +25,10 @@
 
 		"nittro/nette-bridges": "^1.0",
 		"kdyby/translation": "^2.0",
-		"kdyby/redis": "^3.0",
+		"kdyby/redis": "dev-master",
 		"kdyby/doctrine": "^3.0",
 		"juniwalk/form": "^1.0",
+		"juniwalk/image-storage": "*",
 		"juniwalk/ubergrid": "*",
 		"minetro/recaptcha": "^1.0",
 		"janmarek/webloader": "dev-master",
@@ -35,6 +36,12 @@
 		"ramsey/uuid": "^3.0",
 		"ramsey/uuid-doctrine": "^1.0"
 	},
+
+	"repositories": [
+		{"type": "path", "url": "/opt/git/image-storage"},
+		{"type": "vcs", "url": "https://github.com/juniwalk/WebLoader"},
+		{"type": "vcs", "url": "https://github.com/xdobro4/Redis"}
+	],
 
 	"minimum-stability": "dev",
 	"prefer-stable": true

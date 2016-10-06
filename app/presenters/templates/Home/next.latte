@@ -4,7 +4,121 @@
 	<h3 n:block="title">This is next page</h3>
 	<p>What? Did you expect more? So did we!</p>
 
-	{control ubergrid}
+	<div class="panel panel-default">
+
+		<div class="panel-heading">
+			<h3 class="panel-title">Kalendář</h3>
+		</div>
+
+		<div class="panel-body">
+
+			<div class="btn-toolbar">
+
+				<div class="btn-group">
+
+					<a href="#" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
+					<a href="#" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
+
+				</div>
+
+				<a href="#" class="btn btn-success">Dnešek</a>
+
+				<div class="btn-group">
+
+					<a href="#" class="btn btn-default">měsíc</a>
+					<a href="#" class="btn btn-default">týden</a>
+					<a href="#" class="btn btn-default">den</a>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<table class="table table-bordered table-condensed">
+		<thead>
+			<tr class="cal-weekdays">
+				<th class="cal-weekday">Pondělí</th>
+				<th class="cal-weekday">Úterý</th>
+				<th class="cal-weekday">Středa</th>
+				<th class="cal-weekday">Čtvrtek</th>
+				<th class="cal-weekday">Pátek</th>
+				<th class="cal-weekday">Sobota</th>
+				<th class="cal-weekday">Neděle</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="cal-week">
+				<td class="cal-day">1</td>
+				<td class="cal-day">2</td>
+				<td class="cal-day">3</td>
+				<td class="cal-day">4</td>
+				<td class="cal-day success">5</td>
+				<td class="cal-day">6</td>
+				<td class="cal-day">7</td>
+			</tr>
+			<tr class="cal-week">
+				<td class="cal-day">8</td>
+				<td class="cal-day">9</td>
+				<td class="cal-day">10</td>
+				<td class="cal-day">11</td>
+				<td class="cal-day">12</td>
+				<td class="cal-day">13</td>
+				<td class="cal-day">14</td>
+			</tr>
+			<tr class="cal-week">
+				<td class="cal-day">15</td>
+				<td class="cal-day">16</td>
+				<td class="cal-day">17</td>
+				<td class="cal-day">18</td>
+				<td class="cal-day">19</td>
+				<td class="cal-day">20</td>
+				<td class="cal-day">21</td>
+			</tr>
+			<tr class="cal-week">
+				<td class="cal-day">22</td>
+				<td class="cal-day">23</td>
+				<td class="cal-day">24</td>
+				<td class="cal-day">25</td>
+				<td class="cal-day">26</td>
+				<td class="cal-day">27</td>
+				<td class="cal-day">28</td>
+			</tr>
+			<tr class="cal-week">
+				<td class="cal-day">29</td>
+				<td class="cal-day">30</td>
+				<td class="cal-day">21</td>
+				<td class="cal-day disabled">1</td>
+				<td class="cal-day disabled">2</td>
+				<td class="cal-day disabled">3</td>
+				<td class="cal-day disabled">4</td>
+			</tr>
+		</tbody>
+		</table>
+
+	</div>
+
+	<style type="text/css">
+
+	table {
+		table-layout: fixed;
+	}
+
+	.cal-weekdays .cal-weekday {
+		font-size: .8em;
+	}
+
+	.cal-week .cal-day {
+		height: 128px;
+	}
+
+	.cal-week .cal-day.disabled {
+		opacity: .5;
+	}
+
+	</style>
+
+	{*control ubergrid*}
 
 </section>
 {/block}
