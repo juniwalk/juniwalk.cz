@@ -11,25 +11,31 @@
 		"role": "Developer"
 	}],
 
+	"autoload": {
+		"psr-4": {
+			"App\\": "src/"
+		}
+	},
+
 	"require": {
 		"nette/application": "^2.0",
 		"nette/bootstrap": "^2.0",
 		"nette/caching": "^2.0",
 		"nette/di": "^2.0",
 		"nette/http": "^2.0",
-		"nette/robot-loader": "^2.0",
-		"nette/mail": "^2.0",
 		"nette/security": "^2.0",
 		"latte/latte": "^2.0",
 		"tracy/tracy": "^2.0",
 
 		"nittro/nette-bridges": "^1.0",
-		"kdyby/translation": "^2.0",
+		"kdyby/translation": "dev-master",
 		"kdyby/redis": "dev-master",
 		"kdyby/doctrine": "^3.0",
-		"juniwalk/form": "^1.0",
-		"juniwalk/image-storage": "dev-master",
+		"juniwalk/form": "^2.0",
+		"juniwalk/image-storage": "^1.0",
 		"juniwalk/ubergrid": "dev-master",
+		"ublaboo/mailing": "^1.0",
+		"ublaboo/datagrid": "^5.0",
 		"minetro/recaptcha": "^1.0",
 		"janmarek/webloader": "dev-master",
 		"joseki/webloader-filters": "^1.0",

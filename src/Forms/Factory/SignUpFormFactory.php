@@ -8,7 +8,14 @@
  * @license   MIT License
  */
 
-use Nette\Application\Application;
+namespace App\Forms\Factory;
 
-$di = include __DIR__.'/../src/bootstrap.php';
-$di->getByType(Application::class)->run();
+use App\Forms\SignUpForm;
+
+interface SignUpFormFactory
+{
+	/**
+	 * @return SignUpForm
+	 */
+	public function create() : SignUpForm;
+}

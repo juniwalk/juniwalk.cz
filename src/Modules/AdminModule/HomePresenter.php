@@ -8,7 +8,8 @@
  * @license   MIT License
  */
 
-use Nette\Application\Application;
+namespace App\Modules\AdminModule;
 
-$di = include __DIR__.'/../src/bootstrap.php';
-$di->getByType(Application::class)->run();
+final class HomePresenter extends \App\Modules\AbstractPresenter
+{
+}

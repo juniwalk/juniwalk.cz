@@ -8,7 +8,12 @@
  * @license   MIT License
  */
 
-use Nette\Application\Application;
+namespace App\Tools;
 
-$di = include __DIR__.'/../src/bootstrap.php';
-$di->getByType(Application::class)->run();
+interface AssetsFactory
+{
+	/**
+	 * @return Assets
+	 */
+	public function create() : Assets;
+}

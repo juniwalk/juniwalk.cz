@@ -1,0 +1,89 @@
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+
+includes:
+	- config-params.neon
+	- config-assets.neon
+
+
+php:
+	date.timezone: %timezone%
+
+tracy:
+	strictMode: %tracy.strictMode%
+	showBar: TRUE
+	maxDepth: 4
+	maxLen: 300
+
+di:
+	debugger: FALSE
+
+session:
+	autoStart: %session.autoStart%
+	expiration: %session.lifetime%
+	savePath: %tempDir%/sessions
+
+application:
+	errorPresenter: Error
+	scanDirs: no
+	mapping:
+		*: App\Modules\*Module\*Presenter
+
+mail:
+	smtp: TRUE
+	host: %smtp.host%
+	username: %smtp.username%
+	password: %smtp.password%
+	secure: %smtp.secure%
+
+services:
+	router: App\Routing\RouterFactory::createRouter
+	authenticator: App\Security\Authenticator
+	authorizator: App\Security\Authorizator
+	- App\Security\AccessManager
+
+	# Doctrine repositories
+	- App\Entity\UserRepository
+
+	# Form components
+	- App\Forms\Factory\SignUpFormFactory
+	- App\Forms\Factory\SignInFormFactory
+
+
+extensions:
+	recaptcha: Minetro\Forms\reCAPTCHA\ReCaptchaExtension
+	form: JuniWalk\Form\DI\FormExtension
+	- App\DI\UuidDoctrineExtension
+
+	# Kdyby components
+	translation: Kdyby\Translation\DI\TranslationExtension
+	console: Kdyby\Console\DI\ConsoleExtension
+	events: Kdyby\Events\DI\EventsExtension
+	annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	doctrine: Kdyby\Doctrine\DI\OrmExtension
+
+
+# Nette \ DI \ Decorator
+decorator:
+	App\DataGrids\AbstractGrid:
+		setup: [setTranslator]
+
+# Minetro \ reCAPTCHA
+recaptcha:
+	secretKey: %captcha.secret%
+	siteKey: %captcha.site%
+
+# Kdyby \ Translation
+translation:
+	default: %lang.default%
+	whitelist: %lang.allowed%
+	dirs: [%appDir%/../locale]
+
+# Kdyby \ Doctrine
+doctrine:
+	user: %db.user%
+	password: %db.password%
+	dbname: %db.name%
+	driver: %db.driver%
+	metadata:
+		App: %appDir%/Entity

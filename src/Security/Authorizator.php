@@ -8,7 +8,10 @@
  * @license   MIT License
  */
 
-use Nette\Application\Application;
+namespace App\Security;
 
-$di = include __DIR__.'/../src/bootstrap.php';
-$di->getByType(Application::class)->run();
+use App\Entity\User;
+
+final class Authorizator extends \Nette\Security\Permission
+{
+}
