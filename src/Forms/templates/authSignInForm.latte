@@ -1,0 +1,45 @@
+<div n:snippet="form">
+{form form}
+
+	<div class="alerts text-left" n:if="$form->hasErrors()">
+		<div class="alert alert-danger" n:foreach="$form->getErrors() as $error">{_$error}</div>
+	</div>
+
+	<div class="form-group required">
+		<label n:name="email" class="sr-only">{_nette.user.email}</label>
+		<div class="input-group">
+			<label n:name="email" class="input-group-addon"><i class="fas fa-fw fa-envelope"></i></label>
+			<input type="email" n:name="email" class="form-control" placeholder="{_nette.user.email}" autofocus="autofocus">
+		</div>
+	</div>
+
+	<div class="form-group required">
+		<label n:name="password" class="sr-only">{_nette.user.password}</label>
+		<div class="input-group">
+			<label n:name="password" class="input-group-addon"><i class="fas fa-fw fa-lock"></i></label>
+			<input type="password" n:name="password" class="form-control" placeholder="{_nette.user.password}">
+			<span class="input-group-btn">
+				<a class="btn btn-default" href="{plink passwordForgot}" title="{_nette.user.password-forgot}">
+					<i class="fas fa-key fa-fw"></i>
+					<span class="sr-only">{_nette.user.password-forgot}</span>
+				</a>
+			</span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" n:name="remember">
+				<strong>{_nette.user.remember}</strong>
+			</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<button type="submit" n:name="submit" class="btn btn-primary">{_nette.button.signIn|noescape}</button>
+		<a href="{plink signUp}" class="btn btn-default">{_nette.button.signUp|noescape}</a>
+	</div>
+
+{/form}
+</div>

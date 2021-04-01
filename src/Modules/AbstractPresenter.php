@@ -1,143 +1,107 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @author    Design Point, s.r.o. <info@dpoint.cz>
- * @package   design-point/max
- * @link      https://gitlab.com/design-point/max
- * @copyright Design Point, s.r.o. (c) 2016
+ * @copyright (c) Martin Procházka
  * @license   MIT License
  */
 
 namespace App\Modules;
 
-use App\Security\AccessManager;
-use App\Tools\AssetsFactory;
-use Nette\Localization\ITranslator;
+use App\Entity\User;
+use JuniWalk\Tessa\BundleManager;
+use JuniWalk\Tessa\TessaControl;
+use Nette\Application\UI\Presenter;
+use Nette\Security\IUserStorage;
+use Nette\Utils\Strings;
 
-abstract class AbstractPresenter extends \Nette\Application\UI\Presenter
+abstract class AbstractPresenter extends Presenter
 {
-	/**
-	 * @var AccessManager
-	 */
-	private $accessManager;
-
-	/**
-	 * @var AssetsFactory
-	 */
-	private $assets;
-
-	/**
-	 * @var ITranslator
-	 */
-	private $translator;
+    /** @var BundleManager */
+    private $bundleManager;
 
 
 	/**
-	 * @param IAssetsFactory  $assets
+	 * @param  BundleManager  $bundleManager
+	 * @return void
 	 */
-	public function injectAccessManager(AccessManager $accessManager)
+	public function injectBundleManager(BundleManager $bundleManager): void
 	{
-		$this->accessManager = $accessManager;
+        $this->bundleManager = $bundleManager;
 	}
 
 
 	/**
-	 * @param AssetsFactory  $assets
+	 * @return User|null
 	 */
-	public function injectAssets(AssetsFactory $assets)
+	public function getProfile(): ?User
 	{
-		$this->assets = $assets;
+		return $this->getUser()->getIdentity();
 	}
 
 
-	/**
-	 * @param ITranslator  $translator
-	 */
-	public function injectTranslator(ITranslator $translator)
-	{
-		$this->translator = $translator;
-	}
+    /**
+     * @return string
+     */
+    public function getPageName(): string
+    {
+        return $this->getName().':'.$this->getAction();
+    }
 
 
 	/**
-	 * @return ITranslator
+	 * @return bool
 	 */
-	public function getTranslator()
+	public function hasFlashMessages(): bool
 	{
-		return $this->translator;
-	}
+		$flashSession = $this->getFlashSession();
+		$id = $this->getParameterId('flash');
 
-
-	/**
-	 * @return AccessManager
-	 */
-	public function getAccessManager() : AccessManager
-	{
-		return $this->accessManager;
+		return !empty($flashSession->$id);
 	}
 
 
 	protected function startup()
 	{
-/*
-		$token = $this->getParameter('token');
 		$user = $this->getUser();
+		$profile = $user->getIdentity();
 
-		if ($token && $entity = $this->accessManager->validateToken($this, $token)) {
-			$user->setExpiration(0, TRUE, TRUE);
-			$user->login($entity);
-		}
-
-		if (!$user->isLoggedIn() && !$this instanceof AuthPresenter) {
-			if ($user->getLogoutReason() === $user::INACTIVITY) {
-				$this->flashMessage('servis.auth.signedOut', 'warning');
+		if (!$user->isLoggedIn() && !$user->isAllowed($this->getName(), $this->getAction())) {
+			if ($user->getLogoutReason() === IUserStorage::INACTIVITY) {
+				$this->redirect(':Auth:lockscreen', ['redirect' => $this->storeRequest()]);
 			}
 
 			$this->redirect(':Auth:signIn', ['redirect' => $this->storeRequest()]);
 		}
 
-		$entity = $user->getIdentity();
-
-		if (!$user->isAllowed($this->getName(), $this->getAction()) || ($entity && $entity->isBanned())) {
-			return $this->error('You don\'t have access to this section!', 403);
+		if (!$user->isAllowed($this->getName(), $this->getAction()) || ($profile && !$profile->isActive())) {
+			throw new ForbiddenRequestException('You don\'t have access to '.$this->getPageName().'!', 403);
 		}
 
-		$this->redrawControl('flashMessages');
-*/
 		return parent::startup();
 	}
 
 
 	protected function beforeRender()
 	{
-		$this->getTemplate()->add('appDir', $this->getContext()->parameters['appDir']);
-		$this->getTemplate()->add('profile', $this->getUser()->getIdentity());
-		$this->getTemplate()->add('locale', $this->translator->getLocale());
+		if ($this->hasFlashMessages() && !$this->isControlInvalid()) {
+			$this->redrawControl('flashMessages');
+		}
+
+		$template = $this->getTemplate();
+		$template->add('appDir', @$this->getContext()->parameters['appDir']);
+		$template->add('pageName', Strings::webalize($this->getPageName()));
+		$template->add('profile', $profile = $this->getProfile());
 
 		return parent::beforeRender();
 	}
 
 
-	/**
-	 * @param  \Nette\Application\IResponse  $response
-	 */
-	protected function shutdown($response)
-	{
-		if (!$token = $this->getParameter('token')) {
-			return NULL;
-		}
-
-		$this->getUser()->logout(TRUE);
-		$this->getSession()->destroy();
-	}
-
-
-	/**
-	 * @param  string  $name
-	 * @return \App\Services\Assets
-	 */
-	protected function createComponentAssets(string $name)
-	{
-		return $this->assets->create();
-	}
+    /**
+     * @param  string  $name
+     * @return TessaControl
+     */
+    protected function createComponentTessa(string $name): TessaControl
+    {
+        return new TessaControl($this->bundleManager);
+    }
 }

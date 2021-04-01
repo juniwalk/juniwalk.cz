@@ -1,0 +1,15 @@
+{
+    "name": "juniwalk.cz",
+    "description": "",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+		"@fortawesome/fontawesome-free": "^5.0",
+        "source-sans-pro": "^2.0",
+		"admin-lte": "^2.0",
+        "select2": "^4.0",
+        "nette-forms": "^3.0",
+        "nette.ajax.js": "^2.0",
+        "ublaboo-datagrid": "^6.0"
+    }
+}

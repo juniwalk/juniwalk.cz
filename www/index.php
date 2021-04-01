@@ -1,14 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @author    Martin Procházka <juniwalk@outlook.cz>
- * @package   www.juniwalk.cz
- * @link      https://github.com/juniwalk/www.juniwalk.cz
  * @copyright Martin Procházka (c) 2015
  * @license   MIT License
  */
 
-use Nette\Application\Application;
+use Nette\Application\Application as HttpApplication;
+use Contributte\Console\Application as CliApplication;
 
 $di = include __DIR__.'/../src/bootstrap.php';
-$di->getByType(Application::class)->run();
+$class = php_sapi_name() == 'cli'
+    ? CliApplication::class
+    : HttpApplication::class;
+
+$di->getByType($class)->run();

@@ -1,0 +1,6 @@
+<div class="alerts no-print no-margin" n:snippet="flashMessages">
+    <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} no-margin">
+        {('nette.flash.'.$flash->type)|translate|noescape}
+		{$flash->message|translate:$flash->params ?? []|noescape}
+    </div>
+</div>

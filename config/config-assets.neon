@@ -1,64 +1,61 @@
+#
 # WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
 # https://nette.org/security-warning
-
+#
 extensions:
-	webloader: WebLoader\Nette\Extension
+	recaptcha: Contributte\ReCaptcha\DI\ReCaptchaExtension
+	tessa: JuniWalk\Tessa\DI\TessaExtension
 
 services:
-	- App\Tools\AssetsFactory
+	ScssFilter:
+		factory: JuniWalk\Tessa\Filters\ScssFilter
+		setup:
+			- addImportPath(%wwwDir%/assets)
+			- addImportPath(%wwwDir%/vendor)
 
-	# Filters
-	cssUrl: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
-	cssMin: Joseki\Webloader\CssMinFilter
-	jsMin: Joseki\Webloader\JsMinFilter
+	UrlFixerFilter:
+		factory: JuniWalk\Tessa\Filters\UrlFixerFilter
+		arguments: [%wwwDir%]
 
 
-# JanMarek \ WebLoader
-webloader:
-	cssDefaults:
-		remoteFiles:
-			- "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600&subset=latin-ext"
-		files:
-			- %wwwDir%/assets/font-awesome/css/font-awesome.min.css
-			- %wwwDir%/assets/bootstrap/dist/css/bootstrap.min.css
-			- %wwwDir%/assets/happy/dist/happy.min.css
-			- %wwwDir%/assets/animate.css/animate.min.css
+# Contributte \ reCAPTCHA
+recaptcha:
+	secretKey: %captcha.secret%
+	siteKey: %captcha.site%
+
+# JuniWalk \ Tessa
+tessa:
+	outputDir: %wwwDir%/static
+	checkLastModified: true
+	debugMode: %debugMode%
+	filters:
+		- @ScssFilter
+		- @UrlFixerFilter
+
+	default:
 		joinFiles: false
-		fileFilters: [@cssUrl, @cssMin]
-		tempDir: %wwwDir%/static
-		tempPath: static
+		assets:
+			- %wwwDir%/vendor/source-sans-pro/source-sans-pro.css
+			- %wwwDir%/vendor/@fortawesome/fontawesome-free/css/all.min.css
+			- %wwwDir%/vendor/jquery/dist/jquery.min.js
+			- %wwwDir%/vendor/bootstrap/dist/js/bootstrap.min.js
+			- %wwwDir%/vendor/bootstrap/dist/css/bootstrap.min.css
+			- %wwwDir%/vendor/select2/dist/js/select2.min.js
+			- %wwwDir%/vendor/select2/dist/css/select2.min.css
+			- %wwwDir%/vendor/admin-lte/dist/js/adminlte.min.js
+			- %wwwDir%/vendor/admin-lte/dist/css/AdminLTE.min.css
+			- %wwwDir%/vendor/admin-lte/dist/css/skins/skin-blue.min.css
+			- %wwwDir%/vendor/nette-forms/src/assets/netteForms.min.js
+			- %wwwDir%/vendor/nette.ajax.js/nette.ajax.js
+			- %wwwDir%/vendor/ublaboo-datagrid/assets/datagrid-instant-url-refresh.js
+			- %wwwDir%/vendor/ublaboo-datagrid/assets/datagrid.js
+			- %wwwDir%/assets/script.js
+			- %wwwDir%/assets/style.css
 
-	css:
-		frontend:
-			files:
-				- %wwwDir%/css/landing-page.css
+	frontend:
+		extend: default
+		assets: []
 
-		backend:
-			remoteFiles:
-				- "https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&subset=latin-ext"
-			files:
-				- %wwwDir%/css/style.css
-
-
-	jsDefaults:
-		files:
-			- %wwwDir%/assets/pace/pace.min.js
-			- %wwwDir%/assets/jquery/dist/jquery.min.js
-			- %wwwDir%/assets/bootstrap/dist/js/bootstrap.min.js
-			- %wwwDir%/assets/happy/dist/happy.min.js
-			- %wwwDir%/assets/metisMenu/dist/metisMenu.min.js
-			- %wwwDir%/js/inspinia.js
-			- %wwwDir%/js/script.js
-		joinFiles: false
-		fileFilters: [@jsMin]
-		tempDir: %wwwDir%/static
-		tempPath: static
-
-	js:
-		frontend:
-			files:
-				- %wwwDir%/assets/wow/dist/wow.min.js
-				- %wwwDir%/js/cbpAnimatedHeader.js
-
-		backend:
-			files: []
+	backend:
+		extend: default
+		assets: []

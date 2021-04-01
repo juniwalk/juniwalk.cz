@@ -1,3 +1,6 @@
 config/config-params.neon
 config/config-ipconf.php
-/vendor
+vendor/
+www/static/
+www/vendor/
+coverage.xml

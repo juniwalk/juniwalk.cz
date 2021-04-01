@@ -1,0 +1,28 @@
+{**
+ * @param Filter                         $filter
+ * @param Nette\Forms\Controls\TextInput $input
+ * @param string                         $icon_prefix       Icon prefix (fa fa-)
+ *}
+
+{if $outer}
+	<div class="form-group">
+		{label $input class => 'col-sm-3 control-label' /}
+		<div class="col-sm-9">
+			<div class="input-group date">
+				<span class="input-group-addon">
+					<span class="fa fa-calendar"></span>
+				</span>
+				{input $input}
+			</div>
+		</div>
+	</div>
+{else}
+	<div class="form-inline">
+		<div class="input-group date">
+			{input $input}
+			<span class="input-group-addon">
+				<span class="fa fa-calendar"></span>
+			</span>
+		</div>
+	</div>
+{/if}

@@ -1,29 +1,23 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @author    Martin Procházka <juniwalk@outlook.cz>
- * @package   www.juniwalk.cz
- * @link      https://github.com/juniwalk/www.juniwalk.cz
  * @copyright Martin Procházka (c) 2015
  * @license   MIT License
  */
-
 namespace App\Entity;
 
 final class UserRepository extends AbstractRepository
 {
-	/**
-	 * @var string
-	 */
+	/** @var string */
 	protected $entityName = User::class;
 
 
 	/**
 	 * @param  string  $email
-	 * @return User|NULL
+	 * @return User
 	 * @throws BadRequestException
 	 */
-	public function getByEmail(string $email) : ?User
+	public function getByEmail(string $email): User
 	{
 		$builder = $this->createQueryBuilder('e')
 			->where('LOWER(e.email) = LOWER(:email)');
@@ -35,6 +29,21 @@ final class UserRepository extends AbstractRepository
 
 		} catch (NoResultException $e) {
 			throw new BadRequestException;
+		}
+	}
+
+
+	/**
+	 * @param  string  $email
+	 * @return User|null
+	 */
+	public function findByEmail(string $email): ?User
+	{
+		try {
+			return $this->getByEmail($email);
+
+		} catch (BadRequestException $e) {
+			return null;
 		}
 	}
 }

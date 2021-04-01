@@ -1,10 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @author    Martin Procházka <juniwalk@outlook.cz>
- * @package   www.juniwalk.cz
- * @link      https://github.com/juniwalk/www.juniwalk.cz
- * @copyright Martin Procházka (c) 2015
+ * @copyright Martin Procházka (c) 2016
  * @license   MIT License
  */
 

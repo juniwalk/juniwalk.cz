@@ -4,23 +4,24 @@
 includes:
 	- config-params.neon
 	- config-assets.neon
+	- config-orm.neon
 
 
 php:
-	date.timezone: %timezone%
+	date.timezone: Europe/Prague
 
 tracy:
-	strictMode: %tracy.strictMode%
-	showBar: TRUE
+	strictMode: %site.debug%
+	showBar: true
+	maxLength: 300
 	maxDepth: 4
-	maxLen: 300
 
 di:
-	debugger: FALSE
+	debugger: false
 
 session:
-	autoStart: %session.autoStart%
-	expiration: %session.lifetime%
+	autoStart: smart
+	expiration: 1 month
 	savePath: %tempDir%/sessions
 
 application:
@@ -29,6 +30,12 @@ application:
 	mapping:
 		*: App\Modules\*Module\*Presenter
 
+routing:
+	debugger: true
+	cache: true
+	routes:
+		'<presenter>/<action>[/<id>]': Home:default
+
 mail:
 	smtp: TRUE
 	host: %smtp.host%
@@ -36,54 +43,47 @@ mail:
 	password: %smtp.password%
 	secure: %smtp.secure%
 
-services:
-	router: App\Routing\RouterFactory::createRouter
-	authenticator: App\Security\Authenticator
-	authorizator: App\Security\Authorizator
-	- App\Security\AccessManager
-
-	# Doctrine repositories
-	- App\Entity\UserRepository
-
-	# Form components
-	- App\Forms\Factory\SignUpFormFactory
-	- App\Forms\Factory\SignInFormFactory
-
-
-extensions:
-	recaptcha: Minetro\Forms\reCAPTCHA\ReCaptchaExtension
-	form: JuniWalk\Form\DI\FormExtension
-	- App\DI\UuidDoctrineExtension
-
-	# Kdyby components
-	translation: Kdyby\Translation\DI\TranslationExtension
-	console: Kdyby\Console\DI\ConsoleExtension
-	events: Kdyby\Events\DI\EventsExtension
-	annotations: Kdyby\Annotations\DI\AnnotationsExtension
-	doctrine: Kdyby\Doctrine\DI\OrmExtension
-
-
-# Nette \ DI \ Decorator
 decorator:
 	App\DataGrids\AbstractGrid:
 		setup: [setTranslator]
 
-# Minetro \ reCAPTCHA
-recaptcha:
-	secretKey: %captcha.secret%
-	siteKey: %captcha.site%
+services:
+	authenticator: App\Security\Authenticator
+	authorizator: App\Security\Authorizator
 
-# Kdyby \ Translation
+	# DataGrids
+	- App\DataGrids\Factory\VehicleGridFactory
+	- App\DataGrids\Factory\VehiclePartGridFactory
+
+	# Form components
+	- App\Forms\Factory\AuthLockscreenFormFactory
+	- App\Forms\Factory\AuthPasswordForgotFormFactory
+	- App\Forms\Factory\AuthProfileFormFactory
+	- App\Forms\Factory\AuthSignInFormFactory
+	- App\Forms\Factory\AuthSignUpFormFactory
+	- App\Forms\Factory\VehicleFormFactory
+
+
+extensions:
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+	translation: Contributte\Translation\DI\TranslationExtension
+	form: JuniWalk\Form\DI\FormExtension
+
+
+# Contributte \ Translation
 translation:
-	default: %lang.default%
-	whitelist: %lang.allowed%
-	dirs: [%appDir%/../locale]
+	locales:
+		whitelist: %lang.allowed%
+		default: %lang.default%
+	dirs:
+		- %appDir%/../locale
 
-# Kdyby \ Doctrine
-doctrine:
-	user: %db.user%
-	password: %db.password%
-	dbname: %db.name%
-	driver: %db.driver%
-	metadata:
-		App: %appDir%/Entity
+# Contributte \ Console
+console:
+	name: %site.name%
+	version: %site.version%
+	catchExceptions: false
+	autoExit: true
+	url: %site.url%
+	lazy: true
+	helpers:

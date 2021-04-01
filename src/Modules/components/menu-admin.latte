@@ -1,0 +1,17 @@
+<ul class="sidebar-menu">{* n:if="$user->isInRole('admin')"*}
+
+	<li class="header text-upper">{_nette.menu.admin|noescape}</li>
+{*
+	<li n:if="$user->isAllowed('Admin:Template', 'default')" n:class="$presenter->isLinkCurrent(':Admin:Template:*') ? active">
+		<a n:href=":Admin:Template:default">{_nette.page.admin-template-default|noescape}</a>
+	</li>
+
+	<li n:if="$user->isAllowed('Admin:Project', 'default')" n:class="$presenter->isLinkCurrent(':Admin:Project:*') ? active">
+		<a n:href=":Admin:Project:default">{_nette.page.admin-project-default|noescape}</a>
+	</li>
+
+	<li n:if="$user->isAllowed('Admin:User', 'default')" n:class="$presenter->isLinkCurrent(':Admin:User:*') ? active">
+		<a n:href=":Admin:User:default">{_nette.page.admin-user-default|noescape}</a>
+	</li>
+*}
+</ul>

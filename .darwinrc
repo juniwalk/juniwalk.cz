@@ -1,0 +1,4 @@
+excludeFolders:
+	- temp/sessions
+
+rules: []

@@ -1,0 +1,44 @@
+#
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+#
+extensions:
+    annotations: Nettrine\Annotations\DI\AnnotationsExtension
+    migrations: Nettrine\Migrations\DI\MigrationsExtension
+
+    dbal: Nettrine\DBAL\DI\DbalExtension
+    dbal.cache: Nettrine\Cache\DI\CacheExtension
+
+    orm: Nettrine\ORM\DI\OrmExtension
+    orm.cache: Nettrine\ORM\DI\OrmCacheExtension
+    orm.console: Nettrine\ORM\DI\OrmConsoleExtension
+    orm.annotations: Nettrine\ORM\DI\OrmAnnotationsExtension
+
+services:
+    - App\Entity\PartRepository
+    - App\Entity\UserRepository
+    - App\Entity\VehicleRepository
+
+
+# Nettrine \ DBAL
+dbal:
+    debug: [panel: %debugMode%]
+    connection:
+        host: 127.0.0.1
+        user: %db.user%
+        password: %db.password%
+        dbname: %db.name%
+        driver: %db.driver%
+
+# Nettrine \ Annotations
+orm.annotations:
+	mapping:
+		App\Entity: %appDir%/Entity
+
+# Nettrine \ Migrations
+migrations:
+    table: migrations
+    column: version
+    directory: %appDir%/../db
+    namespace: Migrations
+    versionsOrganization: year_and_month

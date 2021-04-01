@@ -1,10 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @author    Martin Procházka <juniwalk@outlook.cz>
- * @package   www.juniwalk.cz
- * @link      https://github.com/juniwalk/www.juniwalk.cz
- * @copyright Martin Procházka (c) 2015
+ * @copyright (c) Martin Procházka
  * @license   MIT License
  */
 
@@ -13,27 +10,33 @@ namespace App\Security;
 use App\Entity\UserRepository;
 use Doctrine\ORM\EntityManagerInterface as EntityManager;
 use Nette\Security\AuthenticationException;
-use Nette\Security\IIdentity;
+use Nette\Security\IAuthenticator;
+use Nette\Security\IIdentity as Identity;
+use Nette\Security\Passwords as PasswordManager;
 
-final class Authenticator implements \Nette\Security\IAuthenticator
+final class Authenticator implements IAuthenticator
 {
-	/**
-	 * @var UserRepository
-	 */
+	/** @var PasswordManager */
+	private $passwordManager;
+
+	/** @var UserRepository */
 	private $userRepository;
 
-	/**
-	 * @var EntityManager
-	 */
+	/** @var EntityManager */
 	private $entityManager;
 
 
 	/**
-	 * @param UserRepository  $userRepository
 	 * @param EntityManager  $entityManager
+	 * @param UserRepository  $userRepository
+	 * @param PasswordManager  $passwordManager
 	 */
-	public function __construct(UserRepository $userRepository, EntityManager $entityManager)
-	{
+	public function __construct(
+		EntityManager $entityManager,
+		UserRepository $userRepository,
+		PasswordManager $passwordManager
+	) {
+		$this->passwordManager = $passwordManager;
 		$this->userRepository = $userRepository;
 		$this->entityManager = $entityManager;
 	}
@@ -41,28 +44,28 @@ final class Authenticator implements \Nette\Security\IAuthenticator
 
 	/**
 	 * @param  string[]  $credentials
-	 * @return IIdentity
+	 * @return Identity
 	 * @throws AuthenticationException
 	 */
-	public function authenticate(array $credentials) : IIdentity
+	public function authenticate(iterable $credentials): Identity
 	{
 		list($username, $password) = $credentials;
 
-		$user = $this->userRepository->findByEmail($username);
+		$user = $this->userRepository->getByEmail($username);
+		$user->setSignIn(null);
 
-		if (!$user || !$user->isPasswordValid($password)) {
-			throw new AuthenticationException('app.auth.signIn-failed', $this::INVALID_CREDENTIAL);
+		if (!$user->isPasswordValid($password, $this->passwordManager)) {
+			throw new AuthenticationException('nette.message.auth-invalid', $this::INVALID_CREDENTIAL);
 		}
 
-		if ($user->isBanned()) {
-			throw new AuthenticationException('app.auth.isBanned', $this::NOT_APPROVED);
+		if (!$user->isActive()) {
+			throw new AuthenticationException('nette.message.auth-banned', $this::NOT_APPROVED);
 		}
 
-		if (!$user->isPasswordUpToDate()) {
+		if (!$user->isPasswordUpToDate($this->passwordManager)) {
 			$user->setPassword($password);
 		}
 
-		$user->setSignIn();
 		$this->entityManager->flush();
 
 		return $user;

@@ -1,29 +1,27 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @author    Martin Procházka <juniwalk@outlook.cz>
- * @package   www.juniwalk.cz
- * @link      https://github.com/juniwalk/www.juniwalk.cz
  * @copyright Martin Procházka (c) 2015
  * @license   MIT License
  */
 
 namespace App\Entity;
 
+use App\Entity\Enums\Role;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Nette\Security\Passwords;
+use Nette\Security\IIdentity as Identity;
+use Nette\Security\Passwords as PasswordManager;
 use Nette\Utils\Strings;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="`user`")
  */
-class User implements \Nette\Security\IIdentity
+class User implements Identity
 {
+	use Attributes\Identifier;
 	use Attributes\Activable;
-	use Attributes\Uuid;
-
 
 	/**
 	 * @ORM\Column(type="string", length=16, nullable=true)
@@ -49,27 +47,32 @@ class User implements \Nette\Security\IIdentity
 	 */
 	private $password;
 
+    /**
+     * @ORM\Column(type="string", length=32)
+     * @var string
+     */
+	private $role = Role::USER;
+
 	/**
 	 * @ORM\Column(type="datetimetz")
-	 * @var \DateTime
+	 * @var DateTime
 	 */
 	private $signUp;
 
 	/**
 	 * @ORM\Column(type="datetimetz", nullable=true)
-	 * @var \DateTime
+	 * @var DateTime
 	 */
 	private $signIn;
 
 
 	/**
 	 * @param string  $email
-	 * @param string  $firstName
-	 * @param string  $lastName
+	 * @param string|null  $firstName
+	 * @param string|null  $lastName
 	 */
-	public function __construct(string $email, string $firstName = NULL, string $lastName = NULL)
+	public function __construct(string $email, string $firstName = null, string $lastName = null)
 	{
-		$this->createId();
 		$this->setEmail($email);
 		$this->setLastName($lastName);
 		$this->setFirstName($firstName);
@@ -81,61 +84,64 @@ class User implements \Nette\Security\IIdentity
 	/**
 	 * @return string
 	 */
-	public function __toString() : string
+	public function __toString(): string
 	{
 		return Strings::webalize($this->getFullName());
 	}
 
 
 	/**
-	 * @param string|NULL  $firstName
+	 * @param  string|null  $firstName
+	 * @return void
 	 */
-	public function setFirstName(string $firstName = NULL)
+	public function setFirstName(string $firstName = null): void
 	{
-		$this->firstName = $firstName ?: NULL;
+		$this->firstName = $firstName ?: null;
 	}
 
 
 	/**
-	 * @return string|NULL
+	 * @return string|null
 	 */
-	public function getFirstName() : ?string
+	public function getFirstName(): ?string
 	{
 		return $this->firstName;
 	}
 
 
 	/**
-	 * @param string|NULL  $lastName
+	 * @param  string|null  $lastName
+	 * @return void
 	 */
-	public function setLastName(string $lastName = NULL)
+	public function setLastName(string $lastName = null): void
 	{
-		$this->lastName = $lastName ?: NULL;
+		$this->lastName = $lastName ?: null;
 	}
 
 
 	/**
-	 * @return string|NULL
+	 * @return string|null
 	 */
-	public function getLastName() : ?string
+	public function getLastName(): ?string
 	{
 		return $this->lastName;
 	}
 
 
 	/**
-	 * @return string|NULL
+	 * @return string|null
 	 */
-	public function getFullName() : ?string
+	public function getFullName(): ?string
 	{
-		return Strings::trim($this->firstName.' '.$this->lastName) ?: NULL;
+		return Strings::trim($this->firstName.' '.$this->lastName) ?: null;
 	}
 
 
 	/**
-	 * @param string  $email
+	 * @param  string  $email
+	 * @return void
 	 */
-	public function setEmail(string $email)
+	public function setEmail(string $email): void
 	{
 		$this->email = Strings::lower($email);
 	}
@@ -144,78 +150,103 @@ class User implements \Nette\Security\IIdentity
 	/**
 	 * @return string
 	 */
-	public function getEmail() : string
+	public function getEmail(): string
 	{
 		return $this->email;
 	}
 
 
 	/**
-	 * @param string|NULL  $password
+	 * @param  string|null  $password
+	 * @param  PasswordManager  $passwordManager
+	 * @return void
 	 */
-	public function setPassword(string $password = NULL)
+	public function setPassword(?string $password, PasswordManager $passwordManager): void
 	{
-		if (!empty($password)) {
-			$password = Passwords::hash($password);
-		}
-
-		$this->password = $password ?: NULL;
+		$this->password = !$password ?: $passwordManager->hash($password);
 	}
 
 
 	/**
 	 * @param  string  $password
+	 * @param  PasswordManager  $passwordManager
 	 * @return bool
 	 */
-	public function isPasswordValid(string $password) : bool
+	public function isPasswordValid(string $password, PasswordManager $passwordManager): bool
 	{
-		return Passwords::verify($password, $this->password);
+		return $passwordManager->verify($password, $this->password);
 	}
 
 
 	/**
+	 * @param  PasswordManager  $passwordManager
 	 * @return bool
 	 */
-	public function isPasswordUpToDate() : bool
+	public function isPasswordUpToDate(PasswordManager $passwordManager): bool
 	{
-		return !Passwords::needsRehash($this->password);
+		return !$passwordManager->needsRehash($this->password);
+	}
+
+
+	/**
+	 * @param  string  $role
+	 * @return void
+	 * @throws InvalidEnumException
+	 */
+	public function setRole(string $role): void
+	{
+		if (!(new Role)->isValidItem($role)) {
+			throw InvalidEnumException::fromItem($role);
+		}
+
+		$this->role = $role;
+	}
+
+
+	/**
+	 * @return string
+	 */
+	public function getRole(): string
+	{
+		return $this->role;
 	}
 
 
 	/**
 	 * @return string[]
 	 */
-	public function getRoles() : array
+	public function getRoles(): array
 	{
-		return [];
+		return [$this->role];
 	}
 
 
 	/**
-	 * @return \DateTime
+	 * @return DateTime
 	 */
-	public function getSignUp() : DateTime
+	public function getSignUp(): DateTime
 	{
 		return clone $this->signUp;
 	}
 
 
 	/**
-	 * @param DateTime|NULL  $signIn
+	 * @param  DateTime|null  $signIn
+	 * @return void
 	 */
-	public function setSignIn(DateTime $signIn = NULL)
+	public function setSignIn(DateTime $signIn = null): void
 	{
 		$this->signIn = $signIn ? clone $signIn : new DateTime;
 	}
 
 
 	/**
-	 * @return \DateTime|NULL
+	 * @return DateTime|null
 	 */
-	public function getSignIn() : ?DateTime
+	public function getSignIn(): ?DateTime
 	{
 		if (!$this->signIn) {
-			return NULL;
+			return null;
 		}
 
 		return clone $this->signIn;

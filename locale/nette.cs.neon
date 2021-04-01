@@ -1,0 +1,155 @@
+
+#
+# @copyright Martin Procházka (c) 2016
+# @license   MIT License
+#
+
+site:
+	name: 'Juni<strong>Walk</strong>'
+	icon: '<i class="fas fa-fw fa-hat-cowboy-side"></i>'
+	description: ''
+	currency: 'Kč'
+	lang: cs
+	dir: ltr
+
+author:
+	name: 'Martin Procházka'
+	street: 'Mydlářská 189/3'
+	city: Liberec
+	zip: 46010
+	phone: '+420 737 686 412'
+
+menu:
+	admin: '<i class="fas fa-fw fa-cog"></i> Administrace'
+	form: '<i class="fab fa-fw fa-wpforms"></i> Formuláře'
+	web: '<i class="fas fa-fw fa-suitcase"></i> Můj Projekt'
+	user: '<i class="fas fa-fw fa-user"></i> Profil'
+	toggle: 'Menu'
+
+
+#
+# Errors
+#
+error:
+	homepage: '<i class="fas fa-home fa-fw"></i> Domovská stránka'
+
+	error4xx: 'Oops...'
+	error4xx-description: 'Váš prohlížeč odeslal požadavek, který tento server nedokázal zpracovat.'
+
+	error403: '<i class="fas fa-exclamation-circle fa-fw"></i> Přístup odepřen'
+	error403-description: 'You do not have permission to view this page. Please try contact the web site administrator if you believe you should be able to view this page.'
+
+	error404: '<i class="fas fa-exclamation-triangle fa-fw"></i> Stránka nenalezena'
+	error404-description: 'Stránka, kterou jste požadovali, nebyla nalezena. Je možné, že adresa je nesprávná nebo stránka již neexistuje.'
+
+	error405: '<i class="fas fa-exclamation-triangle fa-fw"></i> Nepovolená metoda'
+	error405-description: 'Metoda požadavku není povolena pro tuto URL.'
+
+	error410: '<i class="fas fa-exclamation-triangle fa-fw"></i> Stránka nenalezena'
+	error410-description: 'Požadovaná stránka byla odebrána z webu. Omlouváme se za nepříjemnosti.'
+
+
+#
+# Pages
+#
+page:
+	# Web module
+	auth-help: '<i class="fas fa-fw fa-question-circle"></i> <span class="sr-only">Nápověda</span>'
+	auth-signout: '<i class="fas fa-fw fa-power-off"></i> <span class="sr-only">Odhlásit</span>'
+	auth-signin: '<i class="fas fa-sign-in-alt fa-fw"></i> Přihlásit'
+	auth-signup: '<i class="fas fa-user-plus fa-fw"></i> Registrovat'
+	auth-profile: '<i class="fas fa-id-card fa-fw"></i> Profil'
+	auth-passwordforgot: '<i class="fas fa-key fa-fw"></i> Zapomenuté heslo'
+
+	home-default: 'Home boi'
+
+	vehicle-default: 'Vozidla'
+	vehicle-detail: 'Podrobnosti vozidla'
+
+
+vehicle:
+	name: 'Typ vozu'
+	name-required: 'Typ vozu je povinný údaj.'
+	vin: 'VIN'
+	price: 'Pořizovací cena'
+	price-required: 'Pořizovací cena je povinný údaj.'
+	price-tow: 'Cena odtahu'
+	price-recall: 'Cena zrušení'
+
+
+part:
+	name: 'Jméno dílu'
+	price: 'Prodejní cena'
+
+
+#
+# Users
+#
+user:
+	name: 'Jméno a příjmení'
+	name-required: 'Zadejte prosím své celé jméno.'
+	email: 'Email'
+	email-not-found: 'Zadaný email nebyl nalezen.'
+	email-required: 'Zadejte váš email.'
+	email-invalid: 'V zadaném emailu je chyba.'
+	password: 'Heslo'
+	password-change: 'Nové heslo'
+	password-required: 'Zadejte prosím vaše heslo.'
+	password-length: 'Heslo musí být minimálně %d znaků.'
+	password-forgot: 'Nevzpomínám si na své heslo!'
+	password-reset: 'Odeslat email pro reset hesla.'
+	role: 'Role'
+	image: 'Profilový obrázek'
+	image-invalid: 'Zkontrolujte typ nahraného obrázku.'
+	image-too-large: 'Nahraný obrázek je příliš velký.'
+	image-help: 'Maximální povolená velikost je 2MB, obrázek bude oříznut.'
+	image-remove: 'Odstranit existující obrázek'
+	remember: 'Zapamatuj si mě.'
+	agreement: 'Souhlasím s pravidly užívání.'
+	captcha: 'Captcha'
+	captcha-required: 'Vyplňte prosím captchu.'
+	active: 'Aktivní'
+	active-help: 'Povolit možnosti přihlášení do aplikace.'
+
+
+controls:
+	vehicle-form: 'Vozidlo'
+	vehicle-grid: 'Seznam vozidel'
+	part-grid: 'Seznam dílů'
+
+
+#
+# General translations
+#
+button:
+	apply: '<i class="fas fa-check fa-fw"></i> Použít'
+	save: '<i class="fas fa-save fa-fw"></i> Uložit'
+
+#	add: '<i class="fas fa-plus fa-fw"></i> Přidat'
+#	cancel: '<i class="fas fa-ban fa-fw"></i> Zrušit'
+#	close: '<i class="fas fa-times fa-fw"></i> Zavřit'
+#	create: '<i class="fas fa-plus fa-fw"></i> Vytvořit'
+#	filter: '<i class="fas fa-filter fa-fw"></i> Filtrovat'
+#	insert: '<i class="fas fa-share fa-fw"></i> Vložit'
+#	delete: '<i class="fas fa-times fa-fw"></i> Smazat'
+#	comment: '<i class="fas fa-comment fa-fw"></i> Odeslat'
+#	preview: '<i class="fas fa-link fa-fw"></i> Náhled'
+#	embed: '<i class="fas fa-code fa-fw"></i> Vložit do stránky'
+#	sendInvite: '<i class="fas fa-paper-plane fa-fw"></i> Poslat pozvánku'
+#	passwordForgot: '<i class="fas fa-key fa-fw"></i> Zaslat heslo'
+#	passwordReset: '<i class="fas fa-user-lock fa-fw"></i> Resetovat heslo'
+#	addAssignee: '<i class="fas fa-fw fa-user-plus"></i> Přidat řešitele'
+#	selectTemplate: '<i class="fas fa-archive fa-fw"></i> Vybrat šablonu'
+#	skipTemplate: '<i class="fas fa-chevron-circle-right fa-fw"></i> Nepoužít šablonu'
+#	signIn: '<i class="fas fa-sign-in-alt fa-fw"></i> Přihlásit'
+#	signUp: '<i class="fas fa-user-plus fa-fw"></i> Vytvořit účet'
+#	submit: '<i class="fas fa-paper-plane fa-fw"></i> Odeslat'
+#	start: '<i class="fas fa-play-circle fa-fw"></i> Spustit'
+
+
+#
+# General translations
+#
+general:
+	id: '#'
+	all: 'vše'

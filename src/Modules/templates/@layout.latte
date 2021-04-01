@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html dir="{_nette.site.dir}" lang="{_nette.site.lang}">
 <head>
 
 	<!-- browsers -->
@@ -14,50 +14,109 @@
 	<link type="image/x-icon" href="{$basePath}/favicon.ico" rel="shortcut icon">
 
 	<!-- title -->
-	<title n:snippet="title">{ifset title}{include title|stripHtml} | {/ifset}JUNI WALK</title>
+	<title n:snippet="title">{ifset title}{include title|stripHtml|trim} | {/ifset}{include appName|stripHtml|trim}</title>
 
 	<!-- stylesheet -->
-	{control assets:css frontend |indent|trim}
-	<style type="text/css">
-		.no-margin { margin: 0px; }
-		.no-padding { padding: 0px; }
-	</style>
+	{control tessa:css default}
+	{ifset stylesheet}{include stylesheet}{/ifset}
 
 </head>
-<body n:block="body">
+<body class="skin-blue" n:block="body">
+<div class="wrapper">
 
-	<div class="navbar-wrapper">
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" n:href="Home:default">JUNI WALK</a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a class="page-scroll" n:href="Home:default">Home</a></li>
-						<li><a class="page-scroll" n:href="Home:next">Next</a></li>
-						<li><a class="page-scroll noajax" n:href=":Admin:Home:"><i class="fa fa-cog"></i></a></li>
-						<li><a class="page-scroll" n:href=":Auth:signOut"><i class="fa fa-power-off"></i></a></li>
-					</ul>
-				</div>
+	<a id="top" class="sr-only"><!-- top anchor --></a>
+
+	<header class="main-header">
+
+		<a class="logo" n:href="Home:default">
+			<span class="logo-mini">{_nette.site.icon|noescape}</span>
+			<span class="logo-lg" n:block="appName">{_nette.site.icon|noescape} {_nette.site.name|noescape}</span>
+		</a>
+
+		<nav class="navbar navbar-static-top" role="navigation">
+
+			<a href="#" class="sidebar-toggle visible-xs-block" data-toggle="push-menu" role="button">
+				<i class="fas fa-fw fa-bars"></i>
+				<span class="sr-only">{_nette.menu.toggle}</span>
+			</a>
+
+			<div class="navbar-custom-menu">
+				{include $appDir.'/Modules/components/menu-user.latte'}
 			</div>
+
 		</nav>
+
+	</header>
+
+	<aside class="main-sidebar">
+	<section class="sidebar">
+
+		<div class="user-panel" n:if="isset($profile)">
+			<div class="pull-left image">
+				{*<img n:src="avatar, $profile, medium" class="img-circle" alt="{$profile}">*}
+				<img src="https://placehold.it/128" class="img-circle" alt="{$profile}">
+			</div>
+			<div class="pull-left info">
+				<p>{$profile->getFullName()}</p>
+				<em class="text-muted">{$profile->getEmail()|lower}</em>
+			</div>
+		</div>
+
+		{block beforeMenu}{/block}
+		{include $appDir.'/Modules/components/menu-web.latte'}
+		{include $appDir.'/Modules/components/menu-admin.latte'}
+		{block afterMenu}{/block}
+
+	</section>
+	</aside>
+
+	<div class="content-wrapper" n:snippet="content">
+
+		{include $appDir.'/Modules/components/flashMessages.latte'}
+
+		<section class="content-header" n:if="$showHeader ?? true">
+			<h1 n:block="title">{('nette.page.'.$pageName)|translate|noescape}</h1>
+			{ifset breadcrumbs}{include breadcrumbs}{/ifset}
+		</section>
+
+		{include content|indent:2|trim}
+
 	</div>
 
-	<div n:snippet="content" class="transition-auto transition-slide">
+	<footer class="main-footer no-print">
+		<strong>{_nette.author.name} &copy; {date('Y')}</strong>
+	</footer>
 
-		{include content}
+	<aside n:ifset="helpBlock" class="control-sidebar control-sidebar-dark">
+
+		<a href="#" class="btn btn-link pull-right sidebar-toggle" data-toggle="control-sidebar">
+			<i class="fas fa-fw fa-times"></i>
+		</a>
+
+		{include helpBlock|indent:2|trim}
+
+	</aside>
+	<div n:ifset="helpBlock" class="control-sidebar-bg"></div>
+
+	<div class="modals" n:snippet="modals">
+
+		{ifset modal}{include modal}{/ifset}
 
 	</div>
+
+</div>
 
 	<!-- javascript -->
-    {control assets:js frontend |indent|trim}
+	{control tessa:js default}
+	{ifset javascript}{include javascript}{/ifset}
+
+	<script n:ifset="$openModal" type="text/javascript">
+	$({$openModal}).modal({
+		backdrop: 'static',
+		keyboard: false,
+		show: true
+	});
+	</script>
 
 </body>
 </html>

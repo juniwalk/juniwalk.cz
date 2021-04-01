@@ -1,0 +1,24 @@
+
+#
+# @copyright Martin Procházka (c) 2016
+# @license   MIT License
+#
+
+flash:
+	success: '<i class="fas fa-check-circle fa-fw"></i>'
+	warning: '<i class="fas fa-exclamation-circle fa-fw"></i>'
+	danger: '<i class="fas fa-times-circle fa-fw"></i>'
+	info: '<i class="fas fa-info-circle fa-fw"></i>'
+
+role:
+	guest: 'žádná'
+	user: 'uživatel'
+	manager: 'správce'
+	admin: 'admin'
+
+status:
+	unknown: 'neznámý'
+	available: 'dostupné'
+	reserved: 'rezervováno'
+	sold: 'prodáno'
+	kept: 'ponecháno'

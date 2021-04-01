@@ -1,0 +1,31 @@
+
+#
+# @author    Design Point, s.r.o. <info@dpoint.cz>
+# @package   design-point/errest-menu
+# @link      https://gitlab.com/design-point/errest-menu
+# @copyright Design Point, s.r.o. (c) 2018
+# @license   MIT License
+#
+# Czech translation for Ublaboo\Datagrid.
+#
+
+no_item_found: 'Žádné výsledky.'
+no_item_found_reset: 'Žádné výsledky.'
+multiselect_choose: 'Zvolte &hellip;'
+multiselect_selected: 'Zvoleno {0} položek &hellip;'
+show: 'Ukázat detail'
+show_filter: 'Filtr'
+add: 'Přidat'
+here: 'Vymazat filtr'
+items: 'Položky'
+all: 'Vše'
+from: 'ze'
+cancel: 'Zrušit'
+save: 'Uložit'
+reset_filter: 'Zrušit filtr'
+submit: 'Odeslat'
+per_page_submit: 'Odeslat'
+action: 'Akce'
+previous: 'Předchozí'
+next: 'Další'
+edit: 'Upravit'

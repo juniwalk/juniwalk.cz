@@ -1,25 +1,32 @@
-{layout $appDir.'/@Admin/templates/@layout.latte'}
-{block body}
-<body class="gray-bg">
+{layout $appDir.'/Modules/templates/@layout.latte'}
+<body class="login-page lockscreen skin-blue" n:block="body">
 
-	<div class="middle-box text-center animated fadeInDown">
+	<div class="login-box" n:snippet="content">
 
-		<div>
-			<h1 class="logo-name">JW+</h1>
-		</div>
+		<header class="login-logo" n:block="appName">
+			{_nette.site.icon|noescape} {_nette.site.name|noescape}
+		</header>
 
-		<div n:snippet="content">
+		{include $appDir.'/Modules/components/flashMessages.latte'}
 
-			{include content}
+		<section class="login-box-body" n:block="contentWrapper">
 
-		</div>
+			<div class="page-header no-margin-top" n:block="header">
+				<h2 n:block="title" class="no-margin">{('nette.page.'.$pageName)|translate|noescape}</h2>
+			</div>
 
-		<p class="m-t"><strong>Martin Procházka</strong> &copy; {date('Y')}</p>
+			{include content|indent:3|trim}
+
+		</section>
+
+		<footer class="lockscreen-footer text-center text-muted no-print" n:block="footer">
+			<strong>{_nette.author.name} &copy; {date('Y')}</strong>
+		</footer>
 
 	</div>
 
 	<!-- javascript -->
-	{control assets:js backend |indent|trim}
+	{control tessa:js default}
+	{ifset javascript}{include javascript}{/ifset}
 
 </body>
-{/block}

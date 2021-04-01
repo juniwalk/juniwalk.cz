@@ -1,9 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @author    Martin Procházka <juniwalk@outlook.cz>
- * @package   www.juniwalk.cz
- * @link      https://github.com/juniwalk/www.juniwalk.cz
  * @copyright Martin Procházka (c) 2015
  * @license   MIT License
  */
@@ -13,20 +10,16 @@ namespace App\Entity;
 use Doctrine\ORM\EntityManagerInterface as EntityManager;
 use Doctrine\ORM\Proxy\Proxy;
 use Doctrine\ORM\QueryBuilder;
-use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\NoResultException;
+use Exception;
 use Nette\Application\BadRequestException;
 
 abstract class AbstractRepository
 {
-	/**
-	 * @var EntityManager
-	 */
+	/** @var EntityManager */
 	protected $entityManager;
 
-	/**
-	 * @var string
-	 */
+	/** @var string */
 	protected $entityName;
 
 
@@ -39,7 +32,7 @@ abstract class AbstractRepository
 		$this->entityManager = $entityManager;
 
 		if (!$this->entityName) {
-			throw new \Exception;
+			throw new Exception;
 		}
 	}
 
@@ -67,7 +60,7 @@ abstract class AbstractRepository
 
 	/**
 	 * @param  int  $id
-	 * @return object|NULL
+	 * @return object|null
 	 */
 	public function findById(int $id)
 	{
@@ -75,17 +68,17 @@ abstract class AbstractRepository
 			return $this->getById($id);
 
 		} catch (BadRequestException $e) {
-			return NULL;
+			return null;
 		}
 	}
 
 
     /**
      * @param  string  $alias
-     * @param  string|NULL  $indexBy
+     * @param  string|null  $indexBy
      * @return QueryBuilder
      */
-    public function createQueryBuilder(string $alias, string $indexBy = NULL) : QueryBuilder
+    public function createQueryBuilder(string $alias, string $indexBy = null): QueryBuilder
     {
         return $this->entityManager->createQueryBuilder()->select($alias)
             ->from($this->entityName, $alias, $indexBy);
@@ -93,14 +86,14 @@ abstract class AbstractRepository
 
 
 	/**
-	 * @param  int|NULL  $id
-	 * @param  string|NULL  $entityName
-	 * @return Proxy|Entity|NULL
+	 * @param  int|null  $id
+	 * @param  string|null  $entityName
+	 * @return Proxy|Entity|null
 	 */
-	public function getReference(?int $id, string $entityName = NULL)
+	public function getReference(?int $id, string $entityName = null)
 	{
 		if (!$id || empty($id)) {
-			return NULL;
+			return null;
 		}
 
 		return $this->entityManager->getReference($entityName ?: $this->entityName, $id);

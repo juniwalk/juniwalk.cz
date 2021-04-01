@@ -1,9 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
- * @author    Martin Procházka <juniwalk@outlook.cz>
- * @package   www.juniwalk.cz
- * @link      https://github.com/juniwalk/www.juniwalk.cz
  * @copyright Martin Procházka (c) 2015
  * @license   MIT License
  */
@@ -18,13 +15,14 @@ trait Activable
 	 * @ORM\Column(type="boolean")
 	 * @var bool
 	 */
-	private $isActive = TRUE;
+	private $isActive = true;
 
 
 	/**
-	 * @param bool  $active
+	 * @param  bool  $active
+	 * @return void
 	 */
-	public function setActive(bool $active)
+	public function setActive(bool $active): void
 	{
 		$this->isActive = $active;
 	}
@@ -33,7 +31,7 @@ trait Activable
 	/**
 	 * @return bool
 	 */
-	public function isActive() : bool
+	public function isActive(): bool
 	{
 		return $this->isActive;
 	}

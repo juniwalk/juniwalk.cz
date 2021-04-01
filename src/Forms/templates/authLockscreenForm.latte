@@ -1,0 +1,28 @@
+<form n:name="form" s:snippet="form">
+
+	<div class="lockscreen-name">{$profile->getFullName()}</div>
+
+	<div class="lockscreen-item">
+		<div class="lockscreen-image">
+			<img src="https://placehold.it/128" alt="User Image">
+		</div>
+
+		<div class="lockscreen-credentials">
+			<div class="input-group">
+				<input type="password" n:name="password" class="form-control" placeholder="{_nette.user.password}">
+				<span class="input-group-btn">
+					<button n:name="submit" type="submit" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="help-block text-center">
+		Enter your password to retrieve your session
+	</div>
+
+	<div class="text-center">
+		<a href="{plink signOut}">Or sign in as a different user</a>
+	</div>
+
+</form>

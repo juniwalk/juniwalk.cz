@@ -1,0 +1,13 @@
+<ul class="sidebar-menu">
+
+	<li class="header text-upper">{_nette.menu.web|noescape}</li>
+
+	<li n:if="$user->isAllowed('Home', 'default')" n:class="$presenter->isLinkCurrent(':Home:*') ? active">
+		<a n:href=":Home:default">{_nette.page.home-default|noescape}</a>
+	</li>
+
+	<li n:if="$user->isAllowed('Vehicle', 'default')" n:class="$presenter->isLinkCurrent(':Vehicle:*') ? active">
+		<a n:href=":Vehicle:default">{_nette.page.vehicle-default|noescape}</a>
+	</li>
+
+</ul>

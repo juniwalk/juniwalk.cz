@@ -1,0 +1,60 @@
+<form class="box box-primary" n:name="form" n:snippet="form">
+
+	<div class="box-header">
+		<h3 class="box-title">{_nette.controls.vehicle-form|noescape}</h3>
+	</div>
+
+	<div class="box-body no-padding" n:if="$form->hasErrors()" n:inner-foreach="$form->getErrors() as $error">
+		<div class="alert alert-danger no-margin no-border" n:if="$error">{$error|translate}</div>
+	</div>
+
+	<div class="box-body">
+
+		<div class="form-group required">
+			<label n:name="name" class="control-label">{_nette.vehicle.name}</label>
+			<div class="input-group">
+				<label n:name="name" class="input-group-addon"><i class="fas fa-id-card fa-fw"></i></label>
+				<input n:name="name" type="text" class="form-control">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label n:name="vin" class="control-label">{_nette.vehicle.vin}</label>
+			<div class="input-group">
+				<label n:name="vin" class="input-group-addon"><i class="fas fa-id-card fa-fw"></i></label>
+				<input n:name="vin" type="text" class="form-control">
+			</div>
+		</div>
+
+		<div class="form-group required">
+			<label n:name="price" class="control-label">{_nette.vehicle.price}</label>
+			<div class="input-group">
+				<label n:name="price" class="input-group-addon"><i class="fas fa-id-card fa-fw"></i></label>
+				<input n:name="price" type="text" class="form-control">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label n:name="priceTow" class="control-label">{_nette.vehicle.price-tow}</label>
+			<div class="input-group">
+				<label n:name="priceTow" class="input-group-addon"><i class="fas fa-id-card fa-fw"></i></label>
+				<input n:name="priceTow" type="text" class="form-control">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label n:name="priceRecall" class="control-label">{_nette.vehicle.price-recall}</label>
+			<div class="input-group">
+				<label n:name="priceRecall" class="input-group-addon"><i class="fas fa-id-card fa-fw"></i></label>
+				<input n:name="priceRecall" type="text" class="form-control">
+			</div>
+		</div>
+
+	</div>
+
+	<div class="box-footer bg-gray">
+		<button n:name="submit" type="submit" class="btn btn-primary">{_nette.button.save|noescape}</button>
+		<button n:name="apply" type="submit" class="btn btn-default">{_nette.button.apply|noescape}</button>
+	</div>
+
+</form>

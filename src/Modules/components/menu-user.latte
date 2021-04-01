@@ -1,0 +1,11 @@
+{default $isRight = false}
+
+<ul n:class="nav, navbar-nav, $isRight ? navbar-right" n:if="isset($profile)">
+    <li class="user user-menu">
+        <a n:href=":Auth:profile">
+            {*<img n:src="avatar, $profile, small" class="user-image" alt="{$profile}">*}
+            {$profile->getFullName()}
+        </a>
+    </li>
+    <li><a n:href=":Auth:signOut">{_nette.page.auth-signout|noescape}</a></li>
+</ul>
