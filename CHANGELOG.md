@@ -1,3 +1,6 @@
+### 01.04.2021
+- Fixed code to work with php8
+
 ### 11.04.2017
 - Switched to Makefile from deploy.sh script
 - Switched to composer autoloader from robotloader
@@ -157,3 +160,4 @@
 
 ### 30.03.2015
 - initial commit
+
