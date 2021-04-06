@@ -1,6 +1,7 @@
+config/config-access.php
 config/config-params.neon
-config/config-ipconf.php
 vendor/
 www/static/
 www/vendor/
-coverage.xml
+www/lock.phtml
+www/lock.off

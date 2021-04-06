@@ -15,7 +15,7 @@ $configurator->addParameters([
 	'appDir' => __DIR__,
 ]);
 
-$configurator->setDebugMode(@include __DIR__.'/../config/config-ipconf.php');
+$configurator->setDebugMode(@include __DIR__.'/../config/config-access.php');
 $configurator->enableDebugger(__DIR__.'/../log');
 
 return $configurator->createContainer();
