@@ -1,4 +1,2 @@
-excludeFolders:
-	- temp/sessions
-
-rules: []
+includes:
+	- %presetPath%/nette.neon
